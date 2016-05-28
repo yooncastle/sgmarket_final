@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20160528130653) do
     t.text     "content"
     t.string   "contact"
     t.string   "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_url",  default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "replies", force: :cascade do |t|

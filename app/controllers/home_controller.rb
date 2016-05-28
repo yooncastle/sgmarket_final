@@ -36,11 +36,19 @@ class HomeController < ApplicationController
   
   def complete
     @new_post = Post.new
+    file = params[:pic]
+   
+    uploader = MktimageUploader.new
+    uploader.store!(file)
+    @new_post.image_url = uploader.url
+    
+   
     @new_post.title = params[:title]
     @new_post.content = params[:content]
     @new_post.contact = params[:contact]
     @new_post.user_id = params[:user_email]
     @new_post.save
+  
     redirect_to "/home/index"
   end
  

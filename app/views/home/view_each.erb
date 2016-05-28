@@ -5,6 +5,10 @@
     <p>제목: <%= @one_post.title %></p>
     <p>내용: <%= @one_post.content %></p>
     <p>연락처: <%= @one_post.contact %></p>
+    <% unless @one_post.image_url.empty? %>
+        <img src = "<%= @one_post.image_url %>" height="400">
+    <% end %>
+    <hr>
     <a href="/home/index">목록</a>
     <a href="/delete/<%= @one_post.id %>">삭제</a>
     <a href="/update_view/<%= @one_post.id %>">수정</a>
