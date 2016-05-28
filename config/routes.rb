@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
-  get 'home/write'
+  match ":controller(/:action(/:id))", via: [:get, :post]
+  get 'home/index' 
+  post 'home/write'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
