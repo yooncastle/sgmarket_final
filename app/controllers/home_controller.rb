@@ -10,6 +10,13 @@ class HomeController < ApplicationController
     redirect_to "/home/index"
   end
   
+  def delete_reply
+    @del_reply = Reply.find(params[:reply_id])
+    @del_reply.delete
+    
+    redirect_to :back
+  end
+  
   def update_view
     @upd_post = Post.find(params[:post_id])
   end
@@ -37,12 +44,13 @@ class HomeController < ApplicationController
   end
   
   def reply_write
-    new_reply = Reply.new
-    new_reply.content = params[:comment]
-    new_reply.post_id = params[:id_of_post]
-    new_reply.save
+    @new_reply = Reply.new
+    @new_reply.content = params[:comment]
+    @new_reply.post_id = params[:id_of_post]
+    @new_reply.save
     
-    redirect_to "/home/index"
+    redirect_to :back
   end
+  
   
 end
