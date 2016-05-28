@@ -3,7 +3,7 @@
 <div class="container">
      <% @posts.each do |p| %>
       <p><%= p.id %> <%= p.title %></p>
-      <p style="text-align:right">작성자: <%= p.user_id %></p>
+      <p style="text-align:right"><i class="small material-icons">perm_identity</i><%= p.user_id %></p>
       <a href="/view_each/<%=p.id%>" class="btn waves-effect waves-light" style="background-color:#e57373">이 글 보러가기</a>
       <hr>
     <% end %>
