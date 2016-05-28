@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   match ":controller(/:action(/:id))", via: [:get, :post]
   get 'home/index' 
   post 'home/write'
-
+  get 'delete/:post_id' => 'home#delete'
+  get 'update_view/:post_id' => 'home#update_view'
+  post 'do_update/:post_id' => 'home#do_update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

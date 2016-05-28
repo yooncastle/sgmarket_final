@@ -5,5 +5,8 @@
     <% @posts.each do |p| %>
       <p><%= p.title %></p>
       <p><%= p.content %></p>
+      <a href="/delete/<%=p.id%>">삭제</a>
+      <a href="/update_view/<%=p.id%>">수정</a>
+      <hr>
     <% end %>
 </div>
