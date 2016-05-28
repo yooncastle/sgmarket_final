@@ -11,23 +11,22 @@
     .page-footer {
      padding-top: 0px !important;  
     }
-  
   </style>
 </head>
 
 <body>
   
-  <div class="navbar-fixed" style="margin-bottom:10px">
-    <nav>
+  <div class="navbar-fixed" style="margin-bottom:10px" >
+    <nav style = "padding-right: 10px">
       <div class="nav-wrapper" style="background-color:white">
         <a href="/home/index" class="brand-logo" style="color:#e57373"><img src="http://postfiles10.naver.net/20160529_297/yooncastle__14644603427099Wj94_PNG/KakaoTalk_20160529_020014294.png?type=w773" style="width:170px; margin-left:50px"></a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="right hide-on-med-and-down" >
            <% if current_user %>
-           <li><a href="/users/sign_out" style="color:#e57373">로그아웃</a></li>
+           <li><a href="/users/sign_out" style="color:#e57373" "font-family:sans-serif" "font-weight: bold">LOG OUT</a></li>
            <% else %>
-           <li><a href="/users/sign_in" style="color:#e57373">로그인</a></li>
+           <li><a href="/users/sign_in" style="color:#e57373" "font-family:sans-serif" "font-weight: bold">LOG IN</a></li>
            <% end %>
-           <li><a href = "/home/write" style="color:#e57373"> 글 써볼래?</a></li>
+           <li><a href = "/home/write" style="color:#e57373"> WRITE </a></li>
         </ul>
       </div>
     </nav>
