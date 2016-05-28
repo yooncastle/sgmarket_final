@@ -9,18 +9,11 @@
       <%= f.label :비밀번호 %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
-  
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :기억하기 %>
-      </div>
-    <% end -%>
-  
+
     <div class="actions">
-      <%= f.submit "접속" %>
+      <a class="waves-effect waves-light btn" style="background-color:#e57373"><%= f.submit "로그인" %></a>
     </div>
   <% end %>
-  
+  <br>
   <%= render "devise/shared/links" %>
 </div>
