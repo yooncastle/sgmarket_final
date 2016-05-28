@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.string :contact
+      t.string :image_url, :default => ""
       
       t.timestamps null: false
     end
