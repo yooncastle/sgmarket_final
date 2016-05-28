@@ -1,8 +1,12 @@
 <div class="container">
 <h1>글제목(only)이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>
 <p><%= current_user.email if current_user%></p>
-<a href="/users/sign_out">로그아웃</a>
-<a href = "/home/write"> 글 써볼래?</a>
+  <% if current_user %>
+  <a href="/users/sign_out">로그아웃</a>
+  <% else %>
+  <a href="/users/sign_in">로그인</a>
+  <% end %>
+  <a href = "/home/write"> 글 써볼래?</a>
 
 
     <% @posts.each do |p| %>
