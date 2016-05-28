@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
+  before_action :require_login, except: [:index]
+  
   def index
-    @posts = Post.all.reverse
+      @posts = Post.all.reverse
   end
   
   def delete
@@ -26,6 +28,7 @@ class HomeController < ApplicationController
     @do_upd_post.title = params[:title]
     @do_upd_post.content = params[:content]
     @do_upd_post.contact = params[:contact]
+    @do_upd_post.user_id = params[:user_email]
     @do_upd_post.save
     
     redirect_to "/home/index"
@@ -36,9 +39,9 @@ class HomeController < ApplicationController
     @new_post.title = params[:title]
     @new_post.content = params[:content]
     @new_post.contact = params[:contact]
+    @new_post.user_id = params[:user_email]
     @new_post.save
     redirect_to "/home/index"
-  
   end
  
   def view_each

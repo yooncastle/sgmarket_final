@@ -1,10 +1,14 @@
+<div class="container">
 <h1>글제목(only)이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>
+<p><%= current_user.email if current_user%></p>
+<a href="/users/sign_out">로그아웃</a>
 <a href = "/home/write"> 글 써볼래?</a>
 
-<div class="container">
+
     <% @posts.each do |p| %>
       <p><%= p.id %></p>
-      <p><%= p.title %></p>
+      <p>작성자: <%= p.user_id %></p>
+      <p>제목: <%= p.title %></p>
       <a href="/view_each/<%=p.id%>">이 글 보러가기</a>
       <hr>
     <% end %>

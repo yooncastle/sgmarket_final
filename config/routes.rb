@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   match ":controller(/:action(/:id))", via: [:get, :post]
+  root 'home#index'
   get 'home/index' 
   post 'home/write'
   get 'delete/:post_id' => 'home#delete'

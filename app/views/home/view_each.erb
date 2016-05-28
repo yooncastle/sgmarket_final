@@ -1,12 +1,13 @@
 <div class = "container" style = "margin-top:10px">
     <h1>내가 클릭한 글만 볼거에요</h1>
-    <p><%=@one_post.id%></p>
-    <p>제목: <%=@one_post.title%></p>
-    <p>내용: <%=@one_post.content%></p>
-    <p>연락처: <%=@one_post.contact%></p>
+    <p><%= @one_post.id%></p>
+    <p>글쓴이: <%= @one_post.user_id %></p>
+    <p>제목: <%= @one_post.title %></p>
+    <p>내용: <%= @one_post.content %></p>
+    <p>연락처: <%= @one_post.contact %></p>
     <a href="/home/index">목록</a>
-    <a href="/delete/<%=@one_post.id%>">삭제</a>
-    <a href="/update_view/<%=@one_post.id%>">수정</a>
+    <a href="/delete/<%= @one_post.id %>">삭제</a>
+    <a href="/update_view/<%= @one_post.id %>">수정</a>
     <hr>
    
     <% @one_post.replies.each do |x| %>
