@@ -3,6 +3,7 @@
 
 <div class="container">
     <% @posts.each do |p| %>
+      <p><%= p.id %></p>
       <p><%= p.title %></p>
       <a href="/view_each/<%=p.id%>">이 글 보러가기</a>
       <hr>

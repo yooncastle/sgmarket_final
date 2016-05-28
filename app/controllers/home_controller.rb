@@ -18,6 +18,7 @@ class HomeController < ApplicationController
     @do_upd_post = Post.find(params[:post_id])
     @do_upd_post.title = params[:title]
     @do_upd_post.content = params[:content]
+    @do_upd_post.contact = params[:contact]
     @do_upd_post.save
     
     redirect_to "/home/index"
@@ -27,6 +28,7 @@ class HomeController < ApplicationController
     @new_post = Post.new
     @new_post.title = params[:title]
     @new_post.content = params[:content]
+    @new_post.contact = params[:contact]
     @new_post.save
     redirect_to "/home/index"
   
@@ -42,7 +44,7 @@ class HomeController < ApplicationController
     new_reply.post_id = params[:id_of_post]
     new_reply.save
     
-    redirect_to "/home/index"
+    redirect_to :back
   end
   
 end
