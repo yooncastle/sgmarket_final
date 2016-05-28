@@ -1,12 +1,10 @@
-<h1>글이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>
+<h1>글제목(only)이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>
 <a href = "/home/write"> 글 써볼래?</a>
 
 <div class="container">
     <% @posts.each do |p| %>
       <p><%= p.title %></p>
-      <p><%= p.content %></p>
-      <a href="/delete/<%=p.id%>">삭제</a>
-      <a href="/update_view/<%=p.id%>">수정</a>
+      <a href="/view_each/<%=p.id%>">이 글 보러가기</a>
       <hr>
     <% end %>
 </div>

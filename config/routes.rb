@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'delete/:post_id' => 'home#delete'
   get 'update_view/:post_id' => 'home#update_view'
   post 'do_update/:post_id' => 'home#do_update'
+  get 'view_each/:post_id' => 'home#view_each'
+  post 'home/reply_write'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

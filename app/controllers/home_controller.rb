@@ -32,5 +32,17 @@ class HomeController < ApplicationController
   
   end
  
+  def view_each
+    @one_post = Post.find(params[:post_id])
+  end
+  
+  def reply_write
+    new_reply = Reply.new
+    new_reply.content = params[:comment]
+    new_reply.post_id = params[:id_of_post]
+    new_reply.save
+    
+    redirect_to "/home/index"
+  end
   
 end
