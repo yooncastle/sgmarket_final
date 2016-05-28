@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'materialize-sass'
 gem "mini_magick"
 gem "devise"
 gem "figaro"
