@@ -5,9 +5,9 @@
   <% @posts.each do |p| %>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
       <a class="thumbnail" href="/view_each/<%=p.id%>">
-        <img class="img-responsive"  src="<%= p.image_url%>" height="200px" width="200px" alt="">
+        <img class="img-responsive"  src="<%= p.image_url%>" height="200px" width="200px" style="float:left" alt="">
       </a>
-       <p><%= p.price %></p>
+      <p><%= p.price %></p>
     </div>
   <% end %>
-</div>
+</div>    
