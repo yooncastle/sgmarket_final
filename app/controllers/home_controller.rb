@@ -36,6 +36,7 @@ class HomeController < ApplicationController
     @do_upd_post.title = params[:title]
     @do_upd_post.content = params[:content]
     @do_upd_post.contact = params[:contact]
+    @do_upd_post.price = params[:price]
     @do_upd_post.user_id = params[:user_email]
     @do_upd_post.save
     
@@ -55,6 +56,7 @@ class HomeController < ApplicationController
     @new_post.content = params[:content]
     @new_post.contact = params[:contact]
     @new_post.user_id = params[:user_email]
+    @new_post.price = params[:price]
     @new_post.save
   
     redirect_to "/home/index"

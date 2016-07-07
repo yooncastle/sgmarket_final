@@ -1,10 +1,9 @@
 
 <!--<h1>글제목(only)이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>-->
+
 <div class="container">
-     <% @posts.each do |p| %>
-      <p><%= p.title %></p>
-      <p style="text-align:right"><i class="small material-icons">perm_identity</i><%= p.user_id %></p>
-      <a href="/view_each/<%=p.id%>" class="btn waves-effect waves-light" style="background-color:#e57373">이 글 보러가기</a>
-      <hr>
-    <% end %>
+ <% @posts.each do |p| %>
+  <a href="/view_each/<%=p.id%>"><p><img src="<%= p.image_url %>" height="200" width="200" float="right"></p></a>
+  <p><%= p.price %></p>
+ <% end %>
 </div>

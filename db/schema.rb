@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160528130653) do
     t.string   "title"
     t.text     "content"
     t.string   "contact"
+    t.string   "price"
     t.string   "user_id"
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false

@@ -32,8 +32,12 @@ class MktimageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  version :medium do
+   process :resize_to_limit => [350, 350]
+  end
+  
   version :thumb do
-   process :resize_to_fit => [350, 350]
+   process :resize_to_limit => [150, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

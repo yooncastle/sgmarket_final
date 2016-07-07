@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.string :contact
+      t.string :price
       t.string :user_id
       t.string :image_url, :default => ""
       
