@@ -24,7 +24,15 @@ class HomeController < ApplicationController
   end
 
   def do_update
+    
     @do_upd_post = Post.find(params[:post_id])
+    
+    file = params[:pic]
+    
+    uploader = MktimageUploader.new
+    uploader.store!(file)
+    
+    @do_upd_post.image_url = uploader.url
     @do_upd_post.title = params[:title]
     @do_upd_post.content = params[:content]
     @do_upd_post.contact = params[:contact]
@@ -36,13 +44,13 @@ class HomeController < ApplicationController
   
   def complete
     @new_post = Post.new
+    
     file = params[:pic]
    
     uploader = MktimageUploader.new
     uploader.store!(file)
     @new_post.image_url = uploader.url
     
-   
     @new_post.title = params[:title]
     @new_post.content = params[:content]
     @new_post.contact = params[:contact]
