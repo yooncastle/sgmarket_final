@@ -4,7 +4,7 @@
     <% @posts.each do |p| %>
       <div class="col-lg-3 col-md-4 col-xs-6 thumb">
         <a class="thumbnail" href="/view_each/<%=p.id%>">
-          <img class="img-responsive"  src="<%= p.image_url%>" alt="">
+          <img class="img-responsive" src="<%= p.image_url%>" height="auto" alt="">
         </a>
       </div>
     <% end %>
