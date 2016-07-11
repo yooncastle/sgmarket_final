@@ -11,9 +11,16 @@
         <div class="card-content">
           <p><%= @one_post.content %></p>
         </div>
+        
         <div class="card-action">
-          <a href="#">#해시태그</a><a href="#">#해시태그</a><a href="#">#해시태그</a><a href="#">#해시태그</a>
+          <% @one_post.hashtags.each do |x| %>
+            <div class="chip">
+              <%= x.name %>
+            <i class="material-icons">close</i>
+            </div>
+          <% end %>
         </div>
+        
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
            <p> <%= x.content %> <a href="/delete_reply/<%=x.id%>">[x]</a></p>
