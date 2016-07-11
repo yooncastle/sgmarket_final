@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528130653) do
+ActiveRecord::Schema.define(version: 20160711112809) do
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +33,13 @@ ActiveRecord::Schema.define(version: 20160528130653) do
   create_table "replies", force: :cascade do |t|
     t.string   "content"
     t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sharps", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "hashtag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
