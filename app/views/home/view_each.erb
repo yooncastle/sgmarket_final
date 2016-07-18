@@ -1,44 +1,46 @@
-<div class = "container" style = "margin-top:10px">
-    <!--<h1>내가 클릭한 글만 볼거에요</h1>-->
-    
-    <hr>
-  
-   <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <% unless @one_post.image_url.empty? %>
-        <img class="activator" src = "<%= @one_post.image_url %>">
-      <% end %>
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= @one_post.title %><i class="material-icons right">궁금해요!</i></span>
-      <p><a href="#">#해시태그</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= @one_post.title %><i class="material-icons right">닫기</i></span><hr>
-      <p><%= @one_post.content %></p><hr>
-      <%= @one_post.price %><hr>
-      <%= @one_post.contact %><hr>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <% unless @one_post.image_url.empty? %>
+          <img src="<%= @one_post.image_url %>">
+          <% end %>
+          <span class="card-title"><%= @one_post.title %></span>
+        </div>
+        <div class="card-content">
+          <p><%= @one_post.content %></p>
+        </div>
+        
+        <div class="card-action">
+          <% @one_post.hashtags.each do |x| %>
+            <div class="chip">
+              <%= x.name %>
+            <i class="material-icons">close</i>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="card-action">
+          <% @one_post.replies.each do |x| %>
+           <p> <%= x.content %> <a href="/delete_reply/<%=x.id%>">[x]</a></p>
+           <p style="text-align:right; font-size:9px"><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%m월%d일 %H시") %></p>
+          <% end %>
+          <form action="/home/reply_write" method="POST">
+            <div class="form-group">
+              <label for="Reply">댓글쓰기</label>
+              <input type = "hidden" value = "<%= @one_post.id %>" name ="id_of_post">
+                <input name = "comment" class="form-control" id="reply" placeholder="댓글을 입력해주세요">
+                <button type="submit" style="background-color:#9e9e9e" class="btn waves-effect waves-light;">입력</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-action" style="text-align:right">
+          <a href="/delete/<%= @one_post.id %>">삭제</a>
+          <a href="/update_view/<%= @one_post.id %>">수정</a>
+          <a href="/home/index">목록</a>
+        </div>
+      </div>
     </div>
   </div>
-  <div style="text-align:right" style="margin-right:20px">
-      <a href="/home/index">목록</a>
-      <a href="/delete/<%= @one_post.id %>">삭제</a>
-      <a href="/update_view/<%= @one_post.id %>">수정</a>
-    </div> 
-   
-   
-    <% @one_post.replies.each do |x| %>
-       <p> <%= x.content %> <a href="/delete_reply/<%=x.id%>">[삭제]</a></p>
-       <p style="text-align:right"><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분") %></p>
-    <% end %>
-    
-    <hr>
-    <form action="/home/reply_write" method="POST">
-      <div class="form-group">
-        <label for="Reply">댓글쓰기</label>
-        <input type = "hidden" value = "<%= @one_post.id %>" name ="id_of_post">
-        <input name = "comment" class="form-control" id="reply" placeholder="댓글을 입력해주세요">
-      </div>
-      <button type="submit" style="margin-bottom:40px; background-color:#9e9e9e" class="btn waves-effect waves-light">댓글쓰기</button>
-    </form>
 </div>
