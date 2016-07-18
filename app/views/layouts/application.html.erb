@@ -40,16 +40,16 @@
   
   <div class="navbar-fixed" style="margin-bottom:10px">
     <nav>
-      <div class="nav-wrapper" style="background-color:white">
+      <div class="nav-wrapper" style="background-color:#e57373">
         <a href="/home/index" class="brand-logo" style="color:#e57373"><img src="/assets/logo.png" style="width:170px; margin-left:50px"></a>
         <ul class="right hide-on-med-and-down">
            <% if current_user %>
-           <li><a href="#" style="color:#e57373">내 정보</a></li>
-           <li><a href="/users/sign_out" style="color:#e57373">로그아웃</a></li>
+           <li><a href="#" style="color:e57373">내 정보</a></li>
+           <li><a href="/users/sign_out" style="color:white">로그아웃</a></li>
            <% else %>
-           <li><a href="/users/sign_in" style="color:#e57373">로그인</a></li>
-           <% end %>ㅇ
-           <li><a href = "/home/write" style="color:#e57373"> 글 써볼래?</a></li>
+           <li><a href="/users/sign_in" style="color:white">로그인</a></li>
+           <% end %>
+           <li><a href = "/home/write" style="color:white">글 써볼래?</a></li>
         </ul>
       </div>
     </nav>
