@@ -6,7 +6,7 @@
       <input type = "hidden" value = "<%= current_user.email %>" name ="user_email">
       <input type="text" class="form-control" value = "<%= @upd_post.title%>" name="title" id="title_id">
     </div>
-    <div class="input-field col s12">
+    <div class="input-field col">
       <label for="exampleInputPassword1">Content</label>
       <textarea class="materialize-textarea" rows="5" name="content" id="content_id"><%=@upd_post.content%></textarea>
     </div> 
