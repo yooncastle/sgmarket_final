@@ -3,7 +3,7 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <% unless @one_post.image_url.empty? %>
+          <% unless @one_post.image_url.nil? %>
           <img src="<%= @one_post.image_url %>">
           <% end %>
           <span class="card-title"><%= @one_post.title %></span>
@@ -12,15 +12,7 @@
           <p><%= @one_post.content %></p>
         </div>
         
-        <div class="card-action">
-          <% @one_post.hashtags.each do |x| %>
-            <div class="chip">
-              <%= x.name %>
-            <i class="material-icons">close</i>
-            </div>
-          <% end %>
-        </div>
-        
+
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
            <p> <%= x.content %> <a href="/delete_reply/<%=x.id%>">[x]</a></p>

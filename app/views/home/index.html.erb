@@ -1,15 +1,16 @@
 <!--<h1>글제목(only)이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>-->
 <div class="container">
-
   <div class="row">
     <% @posts.each do |p| %>
       <div class="col-lg-3 col-md-4 col-xs-6 thumb">
         <a class="thumbnail" href="/view_each/<%=p.id%>">
-          <img class="img-responsive" src="<%= p.image_url%>" height="auto" alt="">
+          <% if p.image_url.nil? %>
+            <img src="/assets/emptyimage.png">
+          <% else %>
+            <img class="img-responsive" src="<%= p.image_url%>" height="auto" alt="">
+          <% end %>
         </a>
       </div>
     <% end %>
   </div>
-
 </div>
-
