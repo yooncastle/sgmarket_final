@@ -58,21 +58,7 @@ class HomeController < ApplicationController
     @new_post.user_id = params[:user_email]
     @new_post.price = params[:price]
     @new_post.save
-    
-    @ht1 = Hashtag.new
-    @ht2 = Hashtag.new
-    @ht3 = Hashtag.new
-  
-    @ht1.name = params[:hashtag1]
-    @ht1.save
-    @ht2.name = params[:hashtag1]
-    @ht2.save
-    @ht3.name = params[:hashtag1]
-    @ht3.save
-    
-    @new_post.hashtags << @ht1
-    @new_post.hashtags << @ht2
-    @new_post.hashtags << @ht3
+
     
     redirect_to "/home/index"
   end
