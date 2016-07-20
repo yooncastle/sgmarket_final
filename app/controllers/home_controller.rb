@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index]
   
   def index
-      @posts = Post.all.reverse
+      @posts=Post.all.page(params[:page]).per(12)
   end
   
   def delete

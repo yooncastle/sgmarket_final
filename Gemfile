@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'kaminari'
 gem 'materialize-sass'
 gem "mini_magick"
 gem "devise"
