@@ -2,11 +2,11 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index]
   
   def index
-      @posts=Post.all.page(params[:page]).per(12)
+      @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
   def delete
-    @del_post = Post.find(params[:post_id])
+    @del_post = Post.find(params[:post_id]) 
     @del_post.delete
     
     redirect_to "/home/index"
