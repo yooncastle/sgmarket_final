@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'simple_hashtag'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'materialize-sass'
