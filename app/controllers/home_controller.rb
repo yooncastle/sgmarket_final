@@ -3,8 +3,11 @@ class HomeController < ApplicationController
   
   def index
       @posts=Post.all.page(params[:page]).per(12)
+    
+     
   end
   
+
   def delete
     @del_post = Post.find(params[:post_id])
     @del_post.delete
