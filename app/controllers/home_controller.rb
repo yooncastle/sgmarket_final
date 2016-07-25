@@ -81,6 +81,15 @@ class HomeController < ApplicationController
   
   def myinfo
     
+    
+    
   end
+  
+  def show_my_post
+    
+    @myposts=current_user.posts
+        
+  end
+  
   
 end
