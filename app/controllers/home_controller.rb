@@ -2,11 +2,14 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index]
   
   def index
-      @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
+      @posts=Post.all.page(params[:page]).per(12)
+    
+     
   end
   
+
   def delete
-    @del_post = Post.find(params[:post_id]) 
+    @del_post = Post.find(params[:post_id])
     @del_post.delete
     
     redirect_to "/home/index"
@@ -86,14 +89,30 @@ class HomeController < ApplicationController
     @new_reply = Reply.new
     @new_reply.content = params[:comment]
     @new_reply.post_id = params[:id_of_post]
+    @new_reply.user_id = params[:user_id]
     @new_reply.save
     
     redirect_to :back
   end
   
+<<<<<<< HEAD
   def tags
     tag = Tag.where(name: params[:name])
     @posts = tag.all
   end
+=======
+  def myinfo
+    
+    
+    
+  end
+  
+  def show_user_post
+    
+    @myposts=current_user.posts
+        
+  end
+  
+>>>>>>> 897e46cf03169c4b8f0a71d9d964bb45af11eb38
   
 end
