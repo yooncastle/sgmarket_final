@@ -11,7 +11,14 @@
         <div class="card-content">
           <p><%= @one_post.content %></p>
         </div>
-        
+        <div class="card-content">
+           <% @one_post.tags.each do |x| %>
+           <div class="chip">
+           <a href ="/home/tag/<%= x.name %>"><%= x.name %></a>
+           <i class="close material-icons">close</i>
+           </div>
+          <% end %>
+        </div>
 
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
