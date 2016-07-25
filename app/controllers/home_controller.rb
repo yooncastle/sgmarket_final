@@ -95,15 +95,13 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
-<<<<<<< HEAD
+
   def tags
     tag = Tag.where(name: params[:name])
     @posts = tag.all
   end
-=======
+
   def myinfo
-    
-    
     
   end
   
@@ -112,7 +110,5 @@ class HomeController < ApplicationController
     @myposts= current_user.posts
         
   end
-  
->>>>>>> 897e46cf03169c4b8f0a71d9d964bb45af11eb38
   
 end
