@@ -89,15 +89,7 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
-<<<<<<< HEAD
-=======
 
-  def tags
-    tag = Tag.where(name: params[:name])
-    @posts = tag.all
-  end
-
->>>>>>> 9ffe04d7fc628db0542ff279970b98bda287c593
   def myinfo
     
   end
@@ -108,12 +100,10 @@ class HomeController < ApplicationController
         
   end
   
-<<<<<<< HEAD
+
   def tags
     tag = Tag.find_by(name: params[:name])
-    @posts = tag.posts
+    @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
-=======
->>>>>>> 9ffe04d7fc628db0542ff279970b98bda287c593
 end

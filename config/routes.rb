@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   get 'home/index' 
   get 'home/write'
   post 'home/complete' => 'home#complete'
-<<<<<<< HEAD
-=======
+
   post 'home/write'
   get 'home/myinfo'
->>>>>>> 9ffe04d7fc628db0542ff279970b98bda287c593
+
   get 'delete/:post_id' => 'home#delete'
   get 'update_view/:post_id' => 'home#update_view'
   post 'do_update/:post_id' => 'home#do_update'
@@ -17,11 +16,10 @@ Rails.application.routes.draw do
   post 'home/reply_write'
   get 'delete_reply/:reply_id' => 'home#delete_reply'
   get 'home/tag/:name' => 'home#tags'
-<<<<<<< HEAD
-=======
+
   get 'home/show_user_post' => 'home#show_user_post'
   
->>>>>>> 9ffe04d7fc628db0542ff279970b98bda287c593
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
