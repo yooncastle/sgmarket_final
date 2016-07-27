@@ -1,0 +1,27 @@
+<div class="row" height: 100%>
+  <h1>구현이 안돼</h1>
+
+<div class="container">
+
+  
+  <div class="row" height: 100%>
+    <% @myposts.each do |post| %>
+      <% if post.nil?%>
+     <p>your post is not found</p>
+    <% else %>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <a href="/view_each/<%=post.id%>">
+          <% if post.image_url.nil? %>
+            <img src="/assets/emptyimage.png" class="img-responsive" height="auto" alt="">
+          <% else %>
+            <img class="img-responsive" src="<%= post.image_url%>" height="auto" alt="">
+          <% end %>
+        </a>
+    </div>
+    <% end %>
+    <% end %>
+    
+  </div>
+</div>
+<div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @myposts, :theme => 'twitter-bootstrap'%> </div>    
+<a href = "/home/index"> 홈으로 돌아가기</a>

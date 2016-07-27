@@ -5,10 +5,10 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :이메일 %><br />
+    <%= f.label :이메일 %><em>(서강대 saint 메일로 가입해주세요!)</em><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-
+  
   <div class="field">
     <%= f.label :비밀번호 %>
     <% if @minimum_password_length %>

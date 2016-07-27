@@ -5,8 +5,9 @@ class HomeController < ApplicationController
       @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
+
   def delete
-    @del_post = Post.find(params[:post_id]) 
+    @del_post = Post.find(params[:post_id])
     @del_post.delete
     
     redirect_to "/home/index"
@@ -55,10 +56,19 @@ class HomeController < ApplicationController
     @new_post.title = params[:title]
     @new_post.content = params[:content]
     @new_post.contact = params[:contact]
-    @new_post.user_id = params[:user_email]
+    @new_post.user_id = current_user.id
     @new_post.price = params[:price]
     @new_post.save
+    
 
+    tag = Tag.find_or_create_by(name: params[:hashtag1])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
+    
+    tag = Tag.find_or_create_by(name: params[:hashtag2])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
+    
+    tag = Tag.find_or_create_by(name: params[:hashtag3])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
     redirect_to "/home/index"
   end
@@ -71,14 +81,32 @@ class HomeController < ApplicationController
     @new_reply = Reply.new
     @new_reply.content = params[:comment]
     @new_reply.post_id = params[:id_of_post]
+    @new_reply.user_id = params[:user_id]
     @new_reply.save
     
     redirect_to :back
   end
   
+
   def hashtags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts
+  end
+
+  def myinfo
+    
+  end
+  
+  def show_user_post
+    @myposts= current_user.posts.all.page(params[:page]).per(12).order("created_at DESC")
+    
+  end
+  
+
+  def tags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
+
   end
   
 end

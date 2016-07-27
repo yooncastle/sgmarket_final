@@ -1,3 +1,4 @@
 class Tag < ActiveRecord::Base
-    has_and_belongs_to_many :posts
+    has_many :hashtags
+    has_many :posts, through: :hashtags
 end
