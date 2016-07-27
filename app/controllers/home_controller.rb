@@ -89,21 +89,31 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
+<<<<<<< HEAD
+=======
+
+  def tags
+    tag = Tag.where(name: params[:name])
+    @posts = tag.all
+  end
+
+>>>>>>> 9ffe04d7fc628db0542ff279970b98bda287c593
   def myinfo
-    
-    
     
   end
   
   def show_user_post
     
-    @myposts=current_user.posts
+    @myposts= current_user.posts
         
   end
   
+<<<<<<< HEAD
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts
   end
   
+=======
+>>>>>>> 9ffe04d7fc628db0542ff279970b98bda287c593
 end

@@ -1,5 +1,6 @@
 <div class="row" height: 100%>
   <h1>구현이 안돼</h1>
+  <input type = "hidden" value = "<%= current_user %>" name ="user_id">
   <% @myposts.each do |p| %>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
       <a class="thumbnail" href="/view_each/<%=p.id%>">
