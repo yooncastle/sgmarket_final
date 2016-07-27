@@ -76,5 +76,9 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts
+  end
   
 end
