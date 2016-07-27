@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index' 
   get 'home/write'
+  get 'home/complete'
   post 'home/complete' => 'home#complete'
 
   post 'home/write'

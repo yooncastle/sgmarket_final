@@ -58,7 +58,7 @@ class HomeController < ApplicationController
     @new_post.title = params[:title]
     @new_post.content = params[:content]
     @new_post.contact = params[:contact]
-    @new_post.user_id = params[:user_email]
+    @new_post.user_id = current_user.id
     @new_post.price = params[:price]
     @new_post.save
     
@@ -95,9 +95,8 @@ class HomeController < ApplicationController
   end
   
   def show_user_post
+    @myposts= current_user.posts.all.page(params[:page]).per(12).order("created_at DESC")
     
-    @myposts= current_user.posts
-        
   end
   
 
