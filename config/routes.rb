@@ -3,24 +3,15 @@ Rails.application.routes.draw do
   #match ":controller(/:action(/:id))", via: [:get, :post]
   root 'home#index'
   get 'home/index' 
-<<<<<<< HEAD
   get 'home/write'
   post 'home/complete' => 'home#complete'
-=======
-  post 'home/write'
-  get 'home/myinfo'
->>>>>>> 897e46cf03169c4b8f0a71d9d964bb45af11eb38
   get 'delete/:post_id' => 'home#delete'
   get 'update_view/:post_id' => 'home#update_view'
   post 'do_update/:post_id' => 'home#do_update'
   get 'view_each/:post_id' => 'home#view_each'
   post 'home/reply_write'
   get 'delete_reply/:reply_id' => 'home#delete_reply'
-<<<<<<< HEAD
   get 'home/tag/:name' => 'home#tags'
-=======
-  
->>>>>>> 897e46cf03169c4b8f0a71d9d964bb45af11eb38
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index]
   
   def index
-      @posts=Post.all.page(params[:page]).per(12)
+      @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
     
      
   end
@@ -62,21 +62,15 @@ class HomeController < ApplicationController
     @new_post.price = params[:price]
     @new_post.save
     
-    @tag = Tag.new
-    @tag.name = params[:hashtag1]
-    @tag.save
-    @new_post.tags << @tag
+
+    tag = Tag.find_or_create_by(name: params[:hashtag1])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
-    @tag = Tag.new
-    @tag.name = params[:hashtag2]
-    @tag.save
-    @new_post.tags << @tag
+    tag = Tag.find_or_create_by(name: params[:hashtag2])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
-    @tag = Tag.new
-    @tag.name = params[:hashtag3]
-    @tag.save
-    @new_post.tags << @tag
-    
+    tag = Tag.find_or_create_by(name: params[:hashtag3])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
     redirect_to "/home/index"
   end
@@ -95,12 +89,6 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
-<<<<<<< HEAD
-  def tags
-    tag = Tag.where(name: params[:name])
-    @posts = tag.all
-  end
-=======
   def myinfo
     
     
@@ -113,6 +101,9 @@ class HomeController < ApplicationController
         
   end
   
->>>>>>> 897e46cf03169c4b8f0a71d9d964bb45af11eb38
+  def tags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts
+  end
   
 end

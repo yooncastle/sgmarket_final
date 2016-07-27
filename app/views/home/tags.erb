@@ -1,9 +1,10 @@
 <h1>해시태그 검색결과 보기</h1>
 
 <% @posts.each do |post| %>
-    <p> <%= post.title %></p>
-    <p> <%= post.content %></p>
-    <img src="<%= post.image_url %>">
+    <p> <%= post.title %></p><br>
+    <p> <%= post.content %></p><br>
+    <img src="<%= post.image_url %>"><br>
+    <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
 <% end %>
 
 <a href = "/home/index"> 홈으로 돌아가기</a>
