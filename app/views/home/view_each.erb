@@ -27,7 +27,7 @@
            <p style="text-align:right; font-size:9px"><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%m월%d일 %H시") %></p>
           <% end %>
           <form action="/home/reply_write" method="POST">
-            <input type = "hidden" value = "<%= current_user.email %>" name ="user_id">
+            <input type = "hidden" value = "<%= current_user.username %>" name ="user_id">
             <div class="form-group">
               <label for="Reply">댓글쓰기</label>
               <input type = "hidden" value = "<%= @one_post.id %>" name ="id_of_post">
