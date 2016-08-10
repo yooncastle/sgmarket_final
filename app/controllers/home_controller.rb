@@ -3,8 +3,6 @@ class HomeController < ApplicationController
   
   def index
       @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
-    
-     
   end
   
 
@@ -100,6 +98,11 @@ class HomeController < ApplicationController
   end
   
 
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts
+  end
+
   def myinfo
     
    
@@ -115,6 +118,7 @@ class HomeController < ApplicationController
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
+
   end
   
 end

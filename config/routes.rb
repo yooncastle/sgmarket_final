@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+
+#  match ":controller(/:action(/:id))", via: [:get, :post]
   #match ":controller(/:action(/:id))", via: [:get, :post]
   root 'home#index'
   get 'home/index' 
@@ -16,10 +18,14 @@ Rails.application.routes.draw do
   get 'view_each/:post_id' => 'home#view_each'
   post 'home/reply_write'
   get 'delete_reply/:reply_id' => 'home#delete_reply'
+
+  get '/home/hashtag/:name', to: 'home#hashtags'
+
   get 'home/tag/:name' => 'home#tags'
 
   get 'home/show_user_post' => 'home#show_user_post'
   get 'home/alarm'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

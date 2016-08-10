@@ -1,0 +1,7 @@
+<h1>해시태그 검색결과</h1>
+
+<% @posts.each do |post| %>
+  <p><%= post.title %></p>
+  <p><%= render_with_hashtags(post.content) %></p>
+  <a href="/home/index"> 홈으로돌아가기 </a>
+<% end %>

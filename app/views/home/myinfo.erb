@@ -2,8 +2,9 @@
   <ul class="collection with-header">
     <li class="collection-item avatar">
       <i class="material-icons circle darkgrey">assignment_ind</i>
-      <span class="title">닉네임</span>
-      <p><%= current_user.email %><br>
+      <span class="title"><%= current_user.realname %></span>
+      
+      <p><%= current_user.username %><br><%= current_user.email %><br>
          <a href="/users/edit">정보 수정하러가기</a>
       </p>
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
