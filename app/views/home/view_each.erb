@@ -9,7 +9,7 @@
           <span class="card-title"><%= @one_post.title %></span>
         </div>
         <div class="card-content">
-          <p><%= render_with_hashtags(@one_post.content) %></p>
+          <p><%= render_with_hashtags(simple_format @one_post.content.gsub(' ', '&nbsp;')) %></p>
         </div>
         <div class="card-content">
            <% @one_post.tags.each do |x| %>
