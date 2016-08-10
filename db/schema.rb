@@ -27,13 +27,14 @@ ActiveRecord::Schema.define(version: 20160725112300) do
     t.string   "price"
     t.integer  "user_id"
     t.string   "image_url",  default: ""
+    t.integer  "replycount", default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
   create_table "replies", force: :cascade do |t|
     t.string   "content"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

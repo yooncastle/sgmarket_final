@@ -8,6 +8,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :price
       t.integer :user_id
       t.string :image_url, :default => ""
+      t.integer :replycount, default: 0
       
       t.timestamps null: false
     end

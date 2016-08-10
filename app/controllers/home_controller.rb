@@ -77,6 +77,14 @@ class HomeController < ApplicationController
  
   def view_each
     @one_post = Post.find(params[:post_id])
+    if user_signed_in? && current_user==@one_post.user
+      if @one_post.replies.count == 0
+        @one_post.replycount=0
+      else
+        @one_post.replycount=@one_post.replies.last.id
+      end
+      @one_post.save
+    end
   end
   
   def reply_write
@@ -86,11 +94,15 @@ class HomeController < ApplicationController
     @new_reply.user_id = params[:user_id]
     @new_reply.save
     
+   
+    
     redirect_to :back
   end
   
 
   def myinfo
+    
+   
     
   end
   

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'home/tag/:name' => 'home#tags'
 
   get 'home/show_user_post' => 'home#show_user_post'
-  
+  get 'home/alarm'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
