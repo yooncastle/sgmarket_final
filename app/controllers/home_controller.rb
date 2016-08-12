@@ -108,7 +108,10 @@ class HomeController < ApplicationController
   
   def show_user_post
     @myposts= current_user.posts.all.page(params[:page]).per(12).order("created_at DESC")
-    
+  end
+  
+  def show_reply_post
+
   end
   
 
