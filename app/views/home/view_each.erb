@@ -9,7 +9,7 @@
           <span class="card-title"><%= @one_post.title %></span>
         </div>
         <div class="card-content">
-          <p><%= @one_post.content %></p>
+          <p><%=simple_format @one_post.content %></p>
         </div>
         <div class="card-content">
            <% @one_post.tags.each do |x| %>
@@ -36,11 +36,15 @@
             </div>
           </form>
         </div>
-        <div class="card-action" style="text-align:right">
-          <a href="/delete/<%= @one_post.id %>">삭제</a>
-          <a href="/update_view/<%= @one_post.id %>">수정</a>
-          <a href="/home/index">목록</a>
-        </div>
+  
+          <% if user_signed_in? && current_user==@one_post.user %>
+              <div class="card-action" style="text-align:right">
+                <a href="/delete/<%= @one_post.id %>">삭제</a>
+                <a href="/update_view/<%= @one_post.id %>">수정</a>
+                <a href="/home/index">목록</a>
+              </div>
+          <% end %>  
+          
       </div>
     </div>
   </div>
