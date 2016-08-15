@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804101738) do
+ActiveRecord::Schema.define(version: 20160809150007) do
 
   create_table "hashtags", force: :cascade do |t|
     t.integer  "post_id"
@@ -20,16 +20,15 @@ ActiveRecord::Schema.define(version: 20160804101738) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "contact"
-    t.string   "price"
-    t.integer  "user_id"
-    t.string   "image_url",  default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "post_images", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+# Could not dump table "posts" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "posts_tags", id: false, force: :cascade do |t|
     t.integer "post_id"

@@ -15,7 +15,7 @@
   <%= csrf_meta_tags %>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="/assets/home.css" rel="stylesheet">
+  <!--<link href="/assets/home.css" rel="stylesheet">-->
   <style type="text/css">
     .page-footer {
      padding-top: 0px !important;  
@@ -23,10 +23,10 @@
   </style>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
 
     <!-- Custom CSS -->
-    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+    <!--<link href="css/thumbnail-gallery.css" rel="stylesheet">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +42,11 @@
   <div class="navbar-fixed" style="margin-bottom:10px">
     <nav>
       <div class="nav-wrapper" style="background-color:#e57373">
-        <a href="/home/index" class="brand-logo" style="color:#e57373"><img src="/assets/logo.png" style="width:170px; margin-left:50px"></a>
+        <a href="/home/index" class="brand-logo" style="color:#e57373; height:100%"><img src="/assets/logo.png" style="
+         
+        margin-left:50px; height:100%;
+        
+        "></a>
         <ul class="right hide-on-med-and-down">
            <% if current_user %>
            <li><a href="/home/myinfo" style="color:e57373">내 정보</a></li>
@@ -77,10 +81,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <!--<script src="js/jquery.js"></script>-->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
 
 </body>
   

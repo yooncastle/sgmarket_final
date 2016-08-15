@@ -44,8 +44,17 @@ class MktimageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-   Time.now.to_i.to_s + [*('A'..'Z')].sample(8).join + "." + file.extension if original_filename
-  end
+  #def filename
+  #  Time.now.to_i.to_s + [*('A'..'Z')].sample(8).join + "." + file.extension if original_filename
+  #end
 
+  def filename
+    random_string+"."+file.extension
+  end   
+
+  protected 
+
+  def random_string
+    @string ||= "#{SecureRandom.urlsafe_base64}"
+  end
 end

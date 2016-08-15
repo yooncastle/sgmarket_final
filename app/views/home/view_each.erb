@@ -3,9 +3,14 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <% unless @one_post.image_url.nil? %>
-          <img src="<%= @one_post.image_url %>">
+          <!--have to change this part -->
+          <% unless @one_post.post_images[0].avatar.url.nil? %>
+            <% @one_post.post_images.each do |s| %>
+              <img src="<%=s.avatar.url %>">
+            <% end %>
           <% end %>
+        
+          
           <span class="card-title"><%= @one_post.title %></span>
         </div>
         <div class="card-content">
@@ -43,5 +48,6 @@
         </div>
       </div>
     </div>
+    
   </div>
 </div>

@@ -2,11 +2,14 @@ source 'https://rubygems.org'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'materialize-sass'
+# use bootstrap gem
+gem 'bootstrap-sass'
 gem "mini_magick"
 gem "devise"
 gem "figaro"
-gem 'carrierwave'
 gem "fog-aws"
+gem 'carrierwave'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record

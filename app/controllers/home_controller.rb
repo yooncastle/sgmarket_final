@@ -47,11 +47,11 @@ class HomeController < ApplicationController
   def complete
     @new_post = Post.new
     
-    file = params[:pic]
-   
-    uploader = MktimageUploader.new
-    uploader.store!(file)
-    @new_post.image_url = uploader.url
+   # @new_post.avatars= params.permit({:avatars => []})
+
+   # uploader = MktimageUploader.new
+   # uploader.store!(file)
+   # @new_post.image_url = uploader.url
     
     @new_post.title = params[:title]
     @new_post.content = params[:content]
@@ -59,6 +59,11 @@ class HomeController < ApplicationController
     @new_post.user_id = current_user.id
     @new_post.price = params[:price]
     @new_post.save
+    
+    # create post_image
+    params[:avatars].each do |file|
+      PostImage.create!(post_id: @new_post.id, avatar: file)
+    end
     
 
     tag = Tag.find_or_create_by(name: params[:hashtag1])
