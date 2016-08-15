@@ -3,6 +3,7 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
+<<<<<<< HEAD
           <!--have to change this part -->
           <% unless @one_post.post_images[0].avatar.url.nil? %>
             <% @one_post.post_images.each do |s| %>
@@ -12,22 +13,35 @@
         
           
           <span class="card-title"><%= @one_post.title %></span>
+=======
+          <% unless @one_post.image_url.nil? %>
+            <img src="<%= @one_post.image_url %>">
+          <% else %>
+            <img src="/assets/emptyimage.png">
+          <% end %>
+          <span class="card-title" style="color: #000000;"><%= @one_post.title %></span>
+>>>>>>> e08cbf3c8fa5795a3f7f76202f128dfeee54fe14
         </div>
         <div class="card-content">
-          <p><%= render_with_hashtags(@one_post.content) %></p>
+          <p><%=simple_format @one_post.content %></p>
         </div>
         <div class="card-content">
            <% @one_post.tags.each do |x| %>
-           <div class="chip">
-           <a href ="/home/tag/<%= x.name %>"><%= x.name %></a>
-           <i class="close material-icons">close</i>
-           </div>
-          <% end %>
+            
+             <div class="chip">
+               <a href ="/home/tag/<%= x.name %>">&nbsp;&nbsp;<%= x.name %>&nbsp;&nbsp;</a>
+             </div>
+           
+           <% end %>
         </div>
 
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
-           <p> <%= x.user_id %> : <%= x.content %> <a href="/delete_reply/<%=x.id%>">[x]</a></p>
+           <p> <%= x.user_id %> : <%= x.content %> 
+           <% if user_signed_in? && current_user.username==x.user_id %>
+           <a href="/delete_reply/<%=x.id%>">[x]</a>
+           <% end %>
+           </p>
            
            <p style="text-align:right; font-size:9px"><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%m월%d일 %H시") %></p>
           <% end %>
@@ -41,11 +55,16 @@
             </div>
           </form>
         </div>
-        <div class="card-action" style="text-align:right">
-          <a href="/delete/<%= @one_post.id %>">삭제</a>
-          <a href="/update_view/<%= @one_post.id %>">수정</a>
-          <a href="/home/index">목록</a>
-        </div>
+  
+          
+              <div class="card-action" style="text-align:right">
+          <% if user_signed_in? && current_user==@one_post.user %>
+                <a href="/delete/<%= @one_post.id %>">삭제</a>
+                <a href="/update_view/<%= @one_post.id %>">수정</a>
+          <% end %>  
+                <a href="/home/index">목록</a>
+              </div>
+          
       </div>
     </div>
     

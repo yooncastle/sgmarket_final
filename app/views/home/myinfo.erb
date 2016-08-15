@@ -2,9 +2,8 @@
   <ul class="collection with-header">
     <li class="collection-item avatar">
       <i class="material-icons circle darkgrey">assignment_ind</i>
-      <span class="title"><%= current_user.realname %></span>
-      
-      <p><%= current_user.username %><br><%= current_user.email %><br>
+      <p>닉네임: <%=current_user.username%></p>
+      <p>이메일: <%= current_user.email %><br>
          <a href="/users/edit">정보 수정하러가기</a>
       </p>
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
@@ -12,10 +11,11 @@
     <li class="collection-item avatar">
       <i class="material-icons circle darkgrey">mode_edit</i>
       <span class="title"><a href="/home/show_user_post">내가 쓴 글</span></a><br>
-      <span class="title">내가 쓴 댓글</span>
+      <span class="title">내가 댓글을 단 게시물</span>
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
     <li class="collection-item"><div>인증여부<a href="https://saint.sogang.ac.kr" target="_blank" class="secondary-content">인증하러가기</i></a></div></li>
     <li class="collection-item"><div>쪽지 보내기<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>새로 달린 댓글 확인하기<a href="/home/alarm" class="secondary-content"><i class="material-icons">send</i></a></div></li>
   </ul>
 </div>

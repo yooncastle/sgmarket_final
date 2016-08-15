@@ -20,11 +20,24 @@ ActiveRecord::Schema.define(version: 20160809150007) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "post_images", force: :cascade do |t|
     t.integer  "post_id"
     t.string   "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "contact"
+    t.string   "price"
+    t.integer  "user_id"
+    t.string   "image_url",  default: ""
+    t.integer  "replycount", default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+>>>>>>> e08cbf3c8fa5795a3f7f76202f128dfeee54fe14
   end
 
 # Could not dump table "posts" because of following NoMethodError
