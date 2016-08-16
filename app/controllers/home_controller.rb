@@ -63,8 +63,13 @@ class HomeController < ApplicationController
     @new_post.save
     
     # create post_image
-    params[:avatars].each do |file|
-      PostImage.create!(post_id: @new_post.id, avatar: file)
+    if params[:avatars].nil?
+      @new_post.image_url = "/assets/emptyimage.png"
+      @new_post.save
+    else
+      params[:avatars].each do |file|
+        PostImage.create!(post_id: @new_post.id, avatar: file)
+      end
     end
     
 
