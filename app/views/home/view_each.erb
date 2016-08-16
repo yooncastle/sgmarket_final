@@ -3,24 +3,23 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-<<<<<<< HEAD
+          
+          <div class="slider">
+            <ul class="slides">
           <!--have to change this part -->
-          <% unless @one_post.post_images[0].avatar.url.nil? %>
-            <% @one_post.post_images.each do |s| %>
-              <img src="<%=s.avatar.url %>">
-            <% end %>
-          <% end %>
-        
+              <% unless @one_post.post_images[0].avatar.url.nil? %>
+                <% @one_post.post_images.each do |s| %>
+                  <li>
+                   <img src="<%=s.avatar.url %>">
+                  </li>
+                <% end %>
+              <% else %>
+                <img src="/assets/emptyimage.png">
+              <% end %>
+            </ul>
+          </div>
           
           <span class="card-title"><%= @one_post.title %></span>
-=======
-          <% unless @one_post.image_url.nil? %>
-            <img src="<%= @one_post.image_url %>">
-          <% else %>
-            <img src="/assets/emptyimage.png">
-          <% end %>
-          <span class="card-title" style="color: #000000;"><%= @one_post.title %></span>
->>>>>>> e08cbf3c8fa5795a3f7f76202f128dfeee54fe14
         </div>
         <div class="card-content">
           <p><%=simple_format @one_post.content %></p>
@@ -70,3 +69,12 @@
     
   </div>
 </div>
+
+
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+      
+  $(document).ready(function(){
+      $('.slider').slider();
+    });
