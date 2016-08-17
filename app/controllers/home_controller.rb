@@ -63,9 +63,15 @@ class HomeController < ApplicationController
     @new_post.save
     
     # create post_image
-    params[:avatars].each do |file|
-      PostImage.create!(post_id: @new_post.id, avatar: file)
+    
+    if params[:avatars].nil?
+      PostImage.create!(post_id: @new_post.id, avatar: "/assets/emptyimage.png")
+    else
+      params[:avatars].each do |file|
+        PostImage.create!(post_id: @new_post.id, avatar: file)
+      end
     end
+
     
 
     tag = Tag.find_or_create_by(name: params[:hashtag1])

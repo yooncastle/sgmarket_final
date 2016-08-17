@@ -2,21 +2,26 @@
 <div class ="container" style="margin-top:30px">
   <form action="/do_update/<%= @upd_post.id%>" method="POST"  enctype="multipart/form-data">
     <div class="form-group">
-      <label for="exampleInputEmail1">Title</label>
+      <label for="exampleInputEmail1">제목</label>
       <input type = "hidden" value = "<%= current_user.email %>" name ="user_email">
       <input type="text" class="form-control" value = "<%= @upd_post.title%>" name="title" id="title_id">
     </div>
+    
     <div class="form-group">
-      <label for="exampleInputPassword1">Content</label>
-      <textarea class="materialize-textarea" rows="5" name="content" id="content_id"><%=simple_format @upd_post.content%></textarea>
+      <label for="exampleInputPassword1">내용</label>
+      <textarea class="materialize-textarea" rows="5" name="content" id="content_id"><%= @upd_post.content%></textarea>
     </div> 
-    <div class="input-field col">  
+    
+    <div class="form-group">  
+      <label for="exampleInputPassword1">가격</label>
       <input type="text" class="form-control" name="price" id="price_id" value="<%= @upd_post.price %>" placeholder="가격을 입력하세요">
     </div>
-    <div class="input-field col">  
-      <i class="material-icons prefix">phone</i>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">연락처</label>
       <input type="text" class="form-control" name="contact" id="contact_id" value="<%= @upd_post.contact %>" placeholder="연락처를 입력하세요">
     </div>
+    
     <div class="form-group">
         <div class="file-field input-field">
           <div class="btn waves-effect waves-light" style="background-color:#9e9e9e">

@@ -18,10 +18,12 @@
               <% end %>
             </ul>
           </div>
-          
-          <span class="card-title"><%= @one_post.title %></span>
         </div>
+       
+        
         <div class="card-content">
+          <span class="card-title" style="color: #17202A"><%=@one_post.title %></span>
+          <nobr>by <%=@one_post.user.username%></nobr>
           <p><%=simple_format @one_post.content %></p>
         </div>
         <div class="card-content">
@@ -70,11 +72,3 @@
   </div>
 </div>
 
-
-  $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
-      
-  $(document).ready(function(){
-      $('.slider').slider();
-    });
