@@ -21,7 +21,7 @@
         <a class="thumbnail" href="/view_each/<%=p.id%>">
         <!-- change -->
           <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
-            <img src="/assets/emptyimage.png">
+            <img src="<%=p.image_url%>">
           <% else %>
             <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
           <% end %>
