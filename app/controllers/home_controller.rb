@@ -2,9 +2,14 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index]
   
   def index
-      @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
+      @postsall=Post.all.page(params[:page]).per(12).order("created_at DESC")
     
-     
+  end
+    
+  def search
+    if params[:search]
+      @search = Post.search(params[:search]).all.page(params[:page]).per(12).order("created_at DESC")
+    end
   end
   
 
