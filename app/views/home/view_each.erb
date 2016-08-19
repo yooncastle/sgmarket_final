@@ -15,7 +15,7 @@
                 <% end %>
               <% else %>
                 <li>
-                  <img src="<%=@one_post.image_url%>">
+                  <img src=<%=@one_post.image_url%>>
                 </li>
               <% end %>
             </ul>
@@ -23,10 +23,17 @@
 
         </div>
        
-        
+        <li><a href="/writer_post/<%= @one_post.id %>">다른 게시물</a></li>
         <div class="card-content">
           <span class="card-title" style="color: #17202A"><%=@one_post.title %></span>
-          <nobr>by <%=@one_post.user.username%></nobr>
+          
+          <ul id="dropdown2" class="dropdown-content">
+               <li><a href="/writer_post/<%= @one_post.id %>">다른 게시물</a></li>
+              <li><a href="#!">two</a></li>
+              <li><a href="#!">three</a></li>
+          </ul>
+          <a class="btn dropdown-button" href="#!" data-activates="dropdown2"><%=@one_post.user.username%><i class="mdi-navigation-arrow-drop-down right"></i></a>
+           
           <p><%=simple_format @one_post.content %></p>
         </div>
         <div class="card-content">

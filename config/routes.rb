@@ -25,7 +25,10 @@ Rails.application.routes.draw do
 
   get 'home/show_user_post' => 'home#show_user_post'
   get 'home/alarm'
-
+  get 'writer_post/:post_id' => 'home#writer_post'
+  
+  
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
