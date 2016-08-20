@@ -68,17 +68,22 @@
         </div>
   
           
-              <div class="card-action" style="text-align:right">
+        <div class="card-action" style="text-align:right">
           <% if user_signed_in? && current_user==@one_post.user %>
-                <a href="/delete/<%= @one_post.id %>">삭제</a>
-                <a href="/update_view/<%= @one_post.id %>">수정</a>
-          <% end %>  
-                <a href="/home/index">목록</a>
-              </div>
+              <a href="/delete/<%= @one_post.id %>">삭제</a>
+              <a href="/update_view/<%= @one_post.id %>">수정</a>
+          <% end %>
           
+          <!--admin일때 수정/삭제하기-->
+          <% if current_user.admin? %>
+            <a href="/delete/<%= @one_post.id %>">삭제</a>
+            <a href="/update_view/<%= @one_post.id %>">수정</a>
+          <% end %> 
+          
+          <a href="/home/index">목록</a>
+        </div>
       </div>
     </div>
-    
   </div>
 </div>
 

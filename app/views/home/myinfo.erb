@@ -2,6 +2,9 @@
   <ul class="collection with-header">
     <li class="collection-item avatar">
       <i class="material-icons circle darkgrey">assignment_ind</i>
+      <% if current_user.admin? %>
+        <p>어드민계정입니다.</p>
+      <% end %>
       <p>닉네임: <%=current_user.username%></p>
       <p>이메일: <%= current_user.email %><br>
          <a href="/users/edit">정보 수정하러가기</a>
