@@ -38,13 +38,16 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
   
-    <div class="actions">
+  
+    <div class="actions" >
       <a class="waves-effect waves-light btn">
       <%= f.submit "수정하기" %></a>
+      <% end %>
     </div>
-  <% end %>
-  <br>
-  <a class="waves-effect waves-light btn"><%= button_to "계정탈퇴하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하실건가요?" }, method: :delete %></a>
+   <br>
+  <a class="waves-effect waves-light btn" ><%= button_to "계정탈퇴하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하실건가요?" }, method: :delete %></a>
+
   <br><br>
+    
   <%= link_to "뒤로 돌아가기", :back %>
 </div>
