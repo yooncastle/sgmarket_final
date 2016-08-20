@@ -7,14 +7,19 @@
  <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">의류</a></li>
-        <li class="tab col s3"><a href="#test2">코스메틱</a></li>
+
+        <li class="tab col s3">
+          <a href="/home/search">의류</a>
+        </li>
+    
+        <li class="tab col s3"><a href="/home/search">코스메틱</a></li>
         <li class="tab col s3"><a href="#test3">책</a></li>
         <li class="tab col s3"><a href="#test4">티켓</a></li>
         <li class="tab col s3"><a href="#test5">기타</a></li>
       </ul>
     </div>
   </div>
+  
   
   <div class="row" >
     <% @postsall.each do |p| %>
@@ -32,7 +37,7 @@
     
   </div>
   
-   <div class="row">
+   <div class="row" >
     <form class="col s12" action="/home/search">
       <div class="row">
         <div class="input-field col s6">
@@ -43,5 +48,11 @@
       </div>
     </form>
   </div>
+  
 </div>
 <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @postsall, :theme => 'twitter-bootstrap'%></div>   
+<script>
+    $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+</script>
