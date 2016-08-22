@@ -7,7 +7,7 @@
           <div class="slider">
             <ul class="slides">
           <!--have to change this part -->
-              <% unless @one_post.post_images.empty? %>
+              <% unless @one_post.post_images.empty?  %>
                 <% if @one_post.finished == false %>
                   <% @one_post.post_images.each do |s| %>
                     <li>
