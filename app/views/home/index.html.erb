@@ -1,9 +1,4 @@
-<!--<h1>글제목(only)이랑 썸네일 보여주기 + 글 쓰러가기 링크</h1>-->
-
-
 <div class="container">
-   
- 
  <div class="row">
     <div class="col s12">
       <ul class="tabs">
@@ -26,7 +21,7 @@
       <div class="col-lg-3 col-md-4 col-xs-6 thumb">
         <a class="thumbnail" href="/view_each/<%=p.id%>">
         <!-- change -->
-          <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
+          <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? || p.finished == true %>
             <img src="<%=p.image_url%>">
           <% else %>
             <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">

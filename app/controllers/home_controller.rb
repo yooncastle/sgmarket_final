@@ -141,4 +141,13 @@ class HomeController < ApplicationController
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
+  def finish_post
+    @fin_post=Post.find(params[:post_id])
+    @fin_post.finished=1
+    @fin_post.image_url="/assets/finished_pic.png"
+    @fin_post.save
+    
+    redirect_to :back
+  end
+  
 end

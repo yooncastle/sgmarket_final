@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get 'home/search'
   get 'home/cloth'
   
+  get 'finish_post/:post_id' => 'home#finish_post'
+  
   
 
   # The priority is based upon order of creation: first created -> highest priority.
