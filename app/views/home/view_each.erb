@@ -30,11 +30,11 @@
         </div>
         <div class="card-content">
            <% @one_post.tags.each do |x| %>
-            
+            <% unless x.name.empty? || x.name.nil? || x.name.blank? %>
              <div class="chip">
                <a href ="/home/tag/<%= x.name %>">&nbsp;&nbsp;<%= x.name %>&nbsp;&nbsp;</a>
              </div>
-           
+             <% end %>
            <% end %>
         </div>
 

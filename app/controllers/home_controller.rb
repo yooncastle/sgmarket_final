@@ -30,17 +30,18 @@ class HomeController < ApplicationController
     
     @do_upd_post = Post.find(params[:post_id])
     
-    file = params[:pic]
-    
-    uploader = MktimageUploader.new
-    uploader.store!(file)
-    
-    @do_upd_post.image_url = uploader.url
     @do_upd_post.title = params[:title]
     @do_upd_post.content = params[:content]
     @do_upd_post.contact = params[:contact]
     @do_upd_post.price = params[:price]
-    @do_upd_post.user_id = params[:user_email]
+    @do_upd_post.user_id = current_user.id
+  
+    unless params[:avatars].nil?
+    params[:avatars].each do |file|
+        PostImage.create!(post_id: @new_post.id, avatar: file)
+      end
+    end
+    
     @do_upd_post.save
     
     redirect_to "/home/index"
@@ -72,13 +73,12 @@ class HomeController < ApplicationController
       end
     end
     
-
     tag = Tag.find_or_create_by(name: params[:hashtag1])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
     tag = Tag.find_or_create_by(name: params[:hashtag2])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
-    
+  
     tag = Tag.find_or_create_by(name: params[:hashtag3])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
