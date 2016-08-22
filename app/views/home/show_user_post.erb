@@ -2,22 +2,22 @@
 <div class="container">
 
   
-  <div class="row" height: 100%>
-    <% @myposts.each do |post| %>
-      <% if post.nil?%>
-     <p>사용자가 작성한 게시물이 없습니다</p>
+<div class="row" >
+  <% @myposts.each do |post| %>
+    <% if post.nil?%>
+      <p>사용자가 작성한 게시물이 없습니다</p>
     <% else %>
-    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-      <a href="/view_each/<%=post.id%>">
-          <% if post.image_url.nil? %>
-            <img src="/assets/emptyimage.png" class="img-responsive" height="auto" alt="">
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="/view_each/<%=post.id%>">
+          <% if post.post_images.count == 0 || post.post_images[0].avatar.url.nil? || post.finished == true %>
+            <img src="<%=post.image_url%>">
           <% else %>
-            <img class="img-responsive" src="<%= post.image_url%>" height="auto" alt="">
-          <% end %>
-        </a>
-    </div>
+            <img class="img-responsive" src="<%= post.post_images[0].avatar.url%>">
+          <% end %></a>
+      </div>
     <% end %>
-    <% end %>
+  <% end %>
+</div>
     
   </div>
 </div>
