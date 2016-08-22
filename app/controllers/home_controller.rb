@@ -3,8 +3,6 @@ class HomeController < ApplicationController
   
   def index
       @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
-    
-     
   end
   
 
@@ -30,17 +28,18 @@ class HomeController < ApplicationController
     
     @do_upd_post = Post.find(params[:post_id])
     
-    file = params[:pic]
-    
-    uploader = MktimageUploader.new
-    uploader.store!(file)
-    
-    @do_upd_post.image_url = uploader.url
     @do_upd_post.title = params[:title]
     @do_upd_post.content = params[:content]
     @do_upd_post.contact = params[:contact]
     @do_upd_post.price = params[:price]
-    @do_upd_post.user_id = params[:user_email]
+    @do_upd_post.user_id = current_user.id
+  
+    unless params[:avatars].nil?
+    params[:avatars].each do |file|
+        PostImage.create!(post_id: @new_post.id, avatar: file)
+      end
+    end
+    
     @do_upd_post.save
     
     redirect_to "/home/index"
@@ -72,15 +71,15 @@ class HomeController < ApplicationController
       end
     end
     
-    tag= Tag.find_or_create_by(name: params[:category])
+    tag = Tag.find_or_create_by(name: params[:category])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
-
+    
     tag = Tag.find_or_create_by(name: params[:hashtag1])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
     tag = Tag.find_or_create_by(name: params[:hashtag2])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
-    
+  
     tag = Tag.find_or_create_by(name: params[:hashtag3])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
@@ -130,6 +129,7 @@ class HomeController < ApplicationController
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
+  
   def finish_post
     @fin_post=Post.find(params[:post_id])
     @fin_post.finished=1
@@ -139,4 +139,15 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
+  def writer_post
+    @nowpost=Post.find(params[:post_id])
+    @writerpost=@nowpost.user.posts.all.page(params[:page]).per(12).order("created_at DESC")
+  end
+  
+   def search
+    if params[:search]
+       @search = Post.search(params[:search]).all.page(params[:page]).per(12).order("created_at DESC")
+    end
+    end
+    
 end
