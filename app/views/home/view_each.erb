@@ -7,14 +7,28 @@
           <div class="slider">
             <ul class="slides">
           <!--have to change this part -->
-              <% unless @one_post.post_images.empty? %>
-                <% @one_post.post_images.each do |s| %>
+              <% unless @one_post.post_images.empty?  %>
+                <% if @one_post.finished == 0 %>
+                  <% @one_post.post_images.each do |s| %>
+                    <li>
+                    <img src="<%=s.avatar.url %>">
+                    </li>
+                  <% end %>
+                <% else %>
+                  <!--거래완료-->
                   <li>
-                   <img src="<%=s.avatar.url %>">
-                  </li>
+                  <img src=<%=@one_post.image_url%>>
+                  </li>        
+                  <% @one_post.post_images.each do |s| %>
+                    <li>
+                    <img src="<%=s.avatar.url %>">
+                    </li>
+                  <% end %>
+                  
                 <% end %>
               <% else %>
                 <li>
+                  <!--이미지 안올렸을때-->
                   <img src=<%=@one_post.image_url%>>
                 </li>
               <% end %>
@@ -70,6 +84,12 @@
           
         <div class="card-action" style="text-align:right">
           <% if user_signed_in? && current_user==@one_post.user %>
+          
+              <form action="/finish_post/<%= @one_post.id %>" method="GET">
+                <input type = "hidden" value = "<%= @one_post.id %>" name ="post_id">
+                <button type="submit" tyle="background-color:#9e9e9e" class="btn waves-effect waves-light;">거래완료</button>
+              </form>
+          
               <a href="/delete/<%= @one_post.id %>">삭제</a>
               <a href="/update_view/<%= @one_post.id %>">수정</a>
           <% end %>
