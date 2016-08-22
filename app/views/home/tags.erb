@@ -1,18 +1,28 @@
-<h1>해시태그 검색결과 보기</h1>
-  
-
-
 <div class="container">
-
+ 
+ <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="/home/tag/의류">의류</a></li>
+        <li class="tab col s3"><a href="/home/tag/코스메틱">코스메틱</a></li>
+        <li class="tab col s3"><a href="/home/tag/책">책</a></li>
+        <li class="tab col s3"><a href="/home/tag/티켓">티켓</a></li>
+        <li class="tab col s3"><a href="/home/tag/기타">기타</a></li>
+      </ul>
+    </div>
+  </div>
   
-  <div class="row" height: 100%>
-    <% @posts.each do |post| %>
+  <div class="row" >
+    <h3>해시태그 검색결과</h3>
+    <% @posts.each do |p| %>
+      
       <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a href="/view_each/<%=post.id%>">
-          <% if post.image_url.nil? %>
-            <img src="/assets/emptyimage.png" class="img-responsive" height="auto" alt="">
+        <a class="thumbnail" href="/view_each/<%=p.id%>">
+        <!-- change -->
+          <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
+            <img src="<%=p.image_url%>">
           <% else %>
-            <img class="img-responsive" src="<%= post.image_url%>" height="auto" alt="">
+            <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
           <% end %>
         </a>
       </div>
@@ -20,6 +30,4 @@
     
   </div>
 </div>
-
-<div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%> </div>   
-<a href = "/home/index"> 홈으로 돌아가기</a>
+<div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>   

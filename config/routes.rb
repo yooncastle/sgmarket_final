@@ -27,8 +27,7 @@ Rails.application.routes.draw do
   get 'home/alarm'
   get 'writer_post/:post_id' => 'home#writer_post'
   get 'home/search'
-  get 'home/cloth'
-  
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

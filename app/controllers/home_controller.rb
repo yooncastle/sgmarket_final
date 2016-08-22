@@ -2,14 +2,9 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index]
   
   def index
-      @postsall=Post.all.page(params[:page]).per(12).order("created_at DESC")
+      @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
     
-  end
-    
-  def search
-    if params[:search]
-      @search = Post.search(params[:search]).all.page(params[:page]).per(12).order("created_at DESC")
-    end
+     
   end
   
 
@@ -68,18 +63,17 @@ class HomeController < ApplicationController
     @new_post.save
     
     # create post_image
-
     if params[:avatars].nil?
       @new_post.image_url = "/assets/emptyimage.png"
       @new_post.save
-
     else
       params[:avatars].each do |file|
         PostImage.create!(post_id: @new_post.id, avatar: file)
       end
     end
-
     
+    tag= Tag.find_or_create_by(name: params[:category])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
 
     tag = Tag.find_or_create_by(name: params[:hashtag1])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
@@ -112,8 +106,6 @@ class HomeController < ApplicationController
     @new_reply.user_id = params[:user_id]
     @new_reply.save
     
-   
-    
     redirect_to :back
   end
   
@@ -132,10 +124,7 @@ class HomeController < ApplicationController
 
   end
   
-  def writer_post
-    @nowpost=Post.find(params[:post_id])
-    @writerpost=@nowpost.user.posts.all.page(params[:page]).per(12).order("created_at DESC")
-  end
+
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
