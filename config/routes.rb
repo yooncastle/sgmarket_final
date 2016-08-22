@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-#  match ":controller(/:action(/:id))", via: [:get, :post]
+  #match ":controller(/:action(/:id))", via: [:get, :post]
   #match ":controller(/:action(/:id))", via: [:get, :post]
   root 'home#index'
   get 'home/index' 
