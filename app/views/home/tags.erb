@@ -13,7 +13,11 @@
           <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
             <img src="<%=p.image_url%>">
           <% else %>
-            <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
+            <% if p.finished == true %>
+              <img class="img-responsive" src="<%= p.image_url %>">
+            <% else %>
+              <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
+            <% end %>
           <% end %>
         </a>
       </div>
