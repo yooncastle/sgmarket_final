@@ -73,6 +73,9 @@ class HomeController < ApplicationController
       end
     end
     
+    tag = Tag.find_or_create_by(name: params[:category])
+    Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
+    
     tag = Tag.find_or_create_by(name: params[:hashtag1])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
@@ -126,7 +129,8 @@ class HomeController < ApplicationController
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
-
+  end
+  
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
@@ -141,4 +145,8 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
+  def writer_post
+    @nowpost=Post.find(params[:post_id])
+    @writerpost=@nowpost.user.posts.all.page(params[:page]).per(12).order("created_at DESC")
+  end
 end
