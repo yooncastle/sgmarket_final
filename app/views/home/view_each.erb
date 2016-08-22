@@ -7,8 +7,8 @@
           <div class="slider">
             <ul class="slides">
           <!--have to change this part -->
-              <% unless @one_post.post_images.empty?  %>
-                <% if @one_post.finished == 0 %>
+              <% unless @one_post.post_images.empty? %>
+                <% if @one_post.finished == false %>
                   <% @one_post.post_images.each do |s| %>
                     <li>
                     <img src="<%=s.avatar.url %>">
