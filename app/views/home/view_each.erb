@@ -7,25 +7,47 @@
           <div class="slider">
             <ul class="slides">
           <!--have to change this part -->
-              <% unless @one_post.post_images.empty? %>
-                <% @one_post.post_images.each do |s| %>
+              <% unless @one_post.post_images.empty?  %>
+                <% if @one_post.finished == 0 %>
+                  <% @one_post.post_images.each do |s| %>
+                    <li>
+                    <img src="<%=s.avatar.url %>">
+                    </li>
+                  <% end %>
+                <% else %>
+                  <!--거래완료-->
                   <li>
-                   <img src="<%=s.avatar.url %>">
-                  </li>
+                  <img src=<%=@one_post.image_url%>>
+                  </li>        
+                  <% @one_post.post_images.each do |s| %>
+                    <li>
+                    <img src="<%=s.avatar.url %>">
+                    </li>
+                  <% end %>
+                  
                 <% end %>
               <% else %>
                 <li>
-                  <img src="<%=@one_post.image_url%>">
+                  <!--이미지 안올렸을때-->
+                  <img src=<%=@one_post.image_url%>>
                 </li>
               <% end %>
             </ul>
           </div>
-          <!--above-->
-        
-        
-          <span class="card-title"><%= @one_post.title %></span>
+
         </div>
+       
+        <li><a href="/writer_post/<%= @one_post.id %>">다른 게시물</a></li>
         <div class="card-content">
+          <span class="card-title" style="color: #17202A"><%=@one_post.title %></span>
+          
+          <ul id="dropdown2" class="dropdown-content">
+               <li><a href="/writer_post/<%= @one_post.id %>">다른 게시물</a></li>
+              <li><a href="#!">two</a></li>
+              <li><a href="#!">three</a></li>
+          </ul>
+          <a class="btn dropdown-button" href="#!" data-activates="dropdown2"><%=@one_post.user.username%><i class="mdi-navigation-arrow-drop-down right"></i></a>
+           
           <p><%=simple_format @one_post.content %></p>
         </div>
         <div class="card-content">
@@ -60,18 +82,28 @@
         </div>
   
           
-              <div class="card-action" style="text-align:right">
+        <div class="card-action" style="text-align:right">
           <% if user_signed_in? && current_user==@one_post.user %>
-                <a href="/delete/<%= @one_post.id %>">삭제</a>
-                <a href="/update_view/<%= @one_post.id %>">수정</a>
-          <% end %>  
-                <a href="/home/index">목록</a>
-              </div>
           
+              <form action="/finish_post/<%= @one_post.id %>" method="GET">
+                <input type = "hidden" value = "<%= @one_post.id %>" name ="post_id">
+                <button type="submit" tyle="background-color:#9e9e9e" class="btn waves-effect waves-light;">거래완료</button>
+              </form>
+          
+              <a href="/delete/<%= @one_post.id %>">삭제</a>
+              <a href="/update_view/<%= @one_post.id %>">수정</a>
+          <% end %>
+          
+          <!--admin일때 수정/삭제하기-->
+          <% if current_user.admin? %>
+            <a href="/delete/<%= @one_post.id %>">삭제</a>
+            <a href="/update_view/<%= @one_post.id %>">수정</a>
+          <% end %> 
+          
+          <a href="/home/index">목록</a>
+        </div>
       </div>
     </div>
-    
   </div>
 </div>
-
 

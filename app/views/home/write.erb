@@ -12,15 +12,25 @@
     </div>
   
     <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col s3">
+            <select class="form-control" name="category" id="category_id">
+              <option value="" disabled selected>카테고리를 설정하세요</option>
+              <option value="의류">의류</option>
+              <option value="코스메틱">코스메틱</option>
+              <option value="책">책</option>
+              <option value="티켓">티켓</option>
+              <option value="기타">기타</option>
+            </select>
+        </div>
+        <div class="input-field col s3">
           <input id="last_name" name="hashtag1" type="text" class="validate">
           <label for="last_name">Hashtag</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s3">
           <input id="last_name" name="hashtag2" type="text" class="validate">
           <label for="last_name">Hashtag</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s3">
           <input id="last_name" name="hashtag3" type="text" class="validate">
           <label for="last_name">Hashtag</label>
         </div>
@@ -49,3 +59,16 @@
     <button class="btn waves-effect waves-light" style="background-color:#9e9e9e; margin-top:40px" type="submit">글쓰기!</button>
   </form>
 </div>
+
+<script>
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+</script>

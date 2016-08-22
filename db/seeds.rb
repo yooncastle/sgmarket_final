@@ -18,3 +18,5 @@ Post.create(title:"Seed", content: "Seed content", contact: "01012345678", price
 Post.create(title:"Seed", content: "Seed content", contact: "01012345678", price: "1000원",  image_url: "http://ph.cctoday.co.kr/news/photo/201511/938796_313139_1203.jpg")
 Post.create(title:"Seed", content: "Seed content", contact: "01012345678", price: "1000원",  image_url: "http://cfile229.uf.daum.net/R400x0/114B6334507AB0F72CA6C2")
 Post.create(title:"Seed", content: "Seed content", contact: "01012345678", price: "1000원",  image_url: "http://uhd.img.topstarnews.net/wys3/file_attach/2015/07/01/1435715638-46.jpg")
+
+User.create(id:1, email:'admin@sgmarket.com', password:'djemals',username:'admin',realname:'어드민',admin:true)

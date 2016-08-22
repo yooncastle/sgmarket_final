@@ -3,7 +3,7 @@
     <%= devise_error_messages! %>
     
     <div class="field">
-      <p><%= f.label :아이디 %><br />
+      <p><%= f.label :닉네임 %><br />
       <%= f.text_field :username, autofocus: true %></p>
     </div>
     
@@ -31,9 +31,9 @@
     </div>
   
     <div class="actions">
-      <%= f.submit "가입하기" %>
+      <a class="waves-effect waves-light btn"><%= f.submit "가입하기" %></a>
     </div>
   <% end %>
   
-  <%= render "devise/shared/links" %>
+  
 </div>

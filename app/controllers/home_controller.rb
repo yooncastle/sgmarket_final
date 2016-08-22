@@ -104,8 +104,6 @@ class HomeController < ApplicationController
     @new_reply.user_id = params[:user_id]
     @new_reply.save
     
-   
-    
     redirect_to :back
   end
   
@@ -128,6 +126,19 @@ class HomeController < ApplicationController
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
+
+  def tags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
+  end
+  
+  def finish_post
+    @fin_post=Post.find(params[:post_id])
+    @fin_post.finished=1
+    @fin_post.image_url="/assets/finished_pic.png"
+    @fin_post.save
+    
+    redirect_to :back
   end
   
 end

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'search_cop'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'materialize-sass'

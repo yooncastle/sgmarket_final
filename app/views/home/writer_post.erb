@@ -1,0 +1,25 @@
+<div class="row" height: 100%>
+<div class="container">
+
+  
+  <div class="row" height: 100%>
+    <% @writerpost.each do |post| %>
+      <% if post.nil?%>
+     <p>사용자가 작성한 게시물이 없습니다</p>
+    <% else %>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <a href="/view_each/<%=post.id%>">
+          <% if post.post_images[0].avatar.url.nil? %>
+            <img src="/assets/emptyimage.png" class="img-responsive" height="auto" alt="">
+          <% else %>
+            <img class="img-responsive" src="<%= post.post_images[0].avatar.url%>" height="auto" alt="">
+          <% end %>
+        </a>
+    </div>
+    <% end %>
+    <% end %>
+    
+  </div>
+</div>
+<div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @writerpost, :theme => 'twitter-bootstrap'%> </div>    
+<a href = "/home/index"> 홈으로 돌아가기</a>
