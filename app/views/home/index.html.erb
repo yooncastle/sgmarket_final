@@ -28,5 +28,17 @@
     <% end %>
     
   </div>
+  
+    <div class="row">
+     <form class="col s12" action="/home/search">
+       <div class="row">
+         <div class="input-field col s6">
+           <i class="material-icons prefix">search</i>
+           <input id="icon_prefix" type="text" class="validate" name="search">
+           <label for="icon_prefix">Search</label>
+         </div>
+      </div>
+     </form>
+   </div>
 </div>
 <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>   

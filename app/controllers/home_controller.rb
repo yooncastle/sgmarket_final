@@ -3,8 +3,6 @@ class HomeController < ApplicationController
   
   def index
       @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
-    
-     
   end
   
 
@@ -131,10 +129,6 @@ class HomeController < ApplicationController
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
-  def tags
-    tag = Tag.find_by(name: params[:name])
-    @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
-  end
   
   def finish_post
     @fin_post=Post.find(params[:post_id])
@@ -149,4 +143,11 @@ class HomeController < ApplicationController
     @nowpost=Post.find(params[:post_id])
     @writerpost=@nowpost.user.posts.all.page(params[:page]).per(12).order("created_at DESC")
   end
+  
+   def search
+    if params[:search]
+       @search = Post.search(params[:search]).all.page(params[:page]).per(12).order("created_at DESC")
+    end
+    end
+    
 end
