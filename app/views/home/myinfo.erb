@@ -1,7 +1,7 @@
 <div class="container">
   <ul class="collection with-header">
     <li class="collection-item avatar">
-      <i class="material-icons circle darkgrey">assignment_ind</i>
+      <img src="<%= current_user.userpic %>" style="width:4%" class="circle">
       <% if current_user.admin? %>
         <p>어드민계정입니다.</p>
       <% end %>
