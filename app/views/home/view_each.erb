@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col s12 m7">
       <div class="card">
-        <div class="card-image">
+        <div class="card-image" style="height:100%">
           
           <div class="slider">
             <ul class="slides">
@@ -29,7 +29,7 @@
               <% else %>
                 <li>
                   <!--이미지 안올렸을때-->
-                  <img src=<%=@one_post.image_url%>>
+                  <img src=<%=@one_post.image_url%> style="height:100%">
                 </li>
               <% end %>
             </ul>
@@ -52,7 +52,7 @@
         </div>
         <div class="card-content">
            <% @one_post.tags.each do |x| %>
-            <% unless x.name.empty? || x.name.nil? || x.name.blank? %>
+            <% unless x.name.nil? || x.name.blank? %>
              <div class="chip">
                <a href ="/home/tag/<%= x.name %>">&nbsp;&nbsp;<%= x.name %>&nbsp;&nbsp;</a>
              </div>
