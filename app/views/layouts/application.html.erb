@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  
    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +42,7 @@
   <div class="navbar-fixed" style="margin-bottom:10px">
     <nav>
       <div class="nav-wrapper" style="background-color:#e57373; width: auto">
-        <a href="/home/index" class="brand-logo" style="color:#e57373; height:100%"><img src="/assets/logo.png" style="margin-left:50px; height:100%;"></a>
+        <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%;"><img src="/assets/logo.png" style="height:100%;"></a>
         <ul class="right hide-on-med-and-down">
            <% if current_user %>
            <li><a href="/home/myinfo" style="color:e57373">내 정보</a></li>
@@ -59,18 +58,17 @@
  <!--Side nav로 해보자-->
   <ul id="slide-out" class="side-nav">
     <li><div class="userView">
-      <img class="background" src="images/office.jpg">
-      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#!name"><span class="white-text name">John Doe</span></a>
-      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
+      <a href="/myinfo"><span class="black-text name">John Doe</span></a>
+      <a href="/myinfo"><span class="black-text email">jdandturk@gmail.com</span></a>
     </div></li>
-    <li><a href="/home/tag/의류"><i class="material-icons">cloud</i>  Clothes</a></li>
-    <li><a href="/home/tag/코스메틱"><i class="material-icons">cloud</i>  Cosmetics</a></li>
-    <li><a href="/home/tag/책"><i class="material-icons">cloud</i>  Books</a></li>
-    <li><a href="/home/tag/티켓"><i class="material-icons">cloud</i>  Tickets</a></li>
-    <li><a href="/home/tag/기타"><i class="material-icons">cloud</i>  Etc</a></li>
+    <li><a href="/home/tag/의류"><i class="material-icons">loyalty</i>Clothes</a></li>
+    <li><a href="/home/tag/코스메틱"><i class="material-icons">loyalty</i>Cosmetics</a></li>
+    <li><a href="/home/tag/책"><i class="material-icons">loyalty</i>Books</a></li>
+    <li><a href="/home/tag/티켓"><i class="material-icons">loyalty</i>Tickets</a></li>
+    <li><a href="/home/tag/기타"><i class="material-icons">loyalty</i>Etc</a></li>
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+  <a href="#" data-activates="slide-out" class="button-collapse" style="width:100px;"><i class="material-icons" style="margin-left:50px; margin-top:10px; font-size:3.5rem; color:#e57373; clear:right;">toc</i></a>
         
 <main>  
 <%= yield %>
