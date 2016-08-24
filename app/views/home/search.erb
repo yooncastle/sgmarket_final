@@ -1,5 +1,16 @@
-<div class="row" height: 100%>
-<div class="container">
+  <!-- index 페이지랑 동일한 위치에 side nav botton이랑 search bar -->
+  <div class="row">
+    <form class="col s12" style="height:73.5px;" action="/home/search">
+      <div class="row">
+        <a href="#" data-activates="slide-out" class="button-collapse col s1 left"><i class="material-icons" style="margin-top:10px; font-size:3.5rem; color:#e57373;">toc</i></a>
+         <div class="input-field col s7 offset-s1" style="color:#e57373;">
+          <i class="material-icons prefix" style="margin-top:5px; color:#e57373;">search</i>
+          <input id="icon_prefix" type="text" class="validate" name="search">
+          <label for="icon_prefix">Search</label>
+        </div>
+      </div>
+    </form>
+  </div>
 
   <%=params[:search]%>에 대한 검색결과입니다<br>      
   <div class="row" height: 100%>
@@ -20,6 +31,5 @@
     <% end %>
   
   </div>
-</div>
-<div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @search, :theme => 'twitter-bootstrap'%> </div>    
-<a href = "/home/index"> 홈으로 돌아가기</a>
+  <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @search, :theme => 'twitter-bootstrap'%></div>
+  <a href = "/home/index"> 홈으로 돌아가기</a>
