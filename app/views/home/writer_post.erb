@@ -11,12 +11,15 @@
       </div>
     </form>
   </div>
-
+  <div class = "row">
+      <i class ="material-icons prefix" style = "color:#8c8c8c">shopping_cart</i>
+      <span style="font-size:13pt;color: #ffab40; font-weight:bold"><%= @nowpost.user.username %></span><span style="font-size:13pt;color:#8c8c8c; font-weight:bold">님의 다른 게시물</span>
+      </div>
+      
     <div class="row" id = "box-search">
-      <h5><%= @nowpost.user.username %> 님의 다른 게시물</h5>
       <% @writerpost.each do |post| %>
         <% if post.nil?%>
-          <p><%=post.user.username %>님이 작성한 게시물이 없습니다</p>
+          <span style="font-size:13pt;color: #ffab40; font-weight:bold"><%=post.user.username %></span><span style="font-size:13pt;color:#8c8c8c; font-weight:bold">님이 작성한 게시물이 없습니다</span>
         <% else %>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail hovereffect">
@@ -36,4 +39,4 @@
     </div>
     
   <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @writerpost, :theme => 'twitter-bootstrap'%></div>
-<a href = "/home/index"> 홈으로 돌아가기</a>
+  <a href = "/home/index"> 홈으로 돌아가기</a>

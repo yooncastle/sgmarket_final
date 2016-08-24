@@ -13,10 +13,13 @@
   </div>
 
   <div class="row" >
-   <h5>작성글 목록</h5>
+    <div class = "row">
+      <i class ="material-icons prefix" style = "color:#ffab40">receipt</i>
+      <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">작성글 목록</span>
+    </div>
     <% @myposts.each do |post| %>
       <% if post.nil?%>
-       <p>사용자가 작성한 게시물이 없습니다</p>
+       <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">사용자가 작성한 글이 없습니다.</span>
       <% else %>
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail hovereffect">

@@ -58,27 +58,7 @@
   
   <div class="container">
   <!--Side nav로 해보자-->
-<<<<<<< HEAD
-    <ul id="slide-out" class="side-nav">
-      <li><div class="userView">
-        <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
-        <% unless current_user.nil?%>
-        <a href="/myinfo"><span class="black-text name"><%=current_user.username%></span></a>
-        <a href="/myinfo"><span class="black-text email"><%=current_user.email%></span></a>
-        <% end %>
-      </div></li>
-      <li><a href="/home/tag/의류"><i class="material-icons">loyalty</i>Clothes</a></li>
-      <li><a href="/home/tag/코스메틱"><i class="material-icons">loyalty</i>Cosmetics</a></li>
-      <li><a href="/home/tag/책"><i class="material-icons">loyalty</i>Books</a></li>
-      <li><a href="/home/tag/티켓"><i class="material-icons">loyalty</i>Tickets</a></li>
-      <li><a href="/home/tag/기타"><i class="material-icons">loyalty</i>Etc</a></li>
-    </ul>
 
-    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
-      <a class="btn-floating btn-large red">
-        <i class="material-icons">menu</i>
-      </a>
-=======
   <ul id="slide-out" class="side-nav">
     <li><div class="userView">
       <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
@@ -98,7 +78,6 @@
     <a class="btn-floating btn-large brown lighten-2">
       <i class="material-icons">menu</i>
     </a>
->>>>>>> c44fab47bcd74b00b79acf72505cf45c5a7e775b
     <ul>
       <% if current_user %>
       <li><a class="btn-floating #8c9eff #ea80fc blue lighten-3" href = "/home/myinfo"><i class="material-icons">person_pin</i></a></li>
@@ -129,7 +108,6 @@
     </div>
     
   </footer>
-  
      
     <!-- /.container -->
 
