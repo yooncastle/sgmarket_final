@@ -13,21 +13,27 @@
   </div>
 
   <div class="row" >
+   <h5>작성글 목록</h5>
     <% @myposts.each do |post| %>
       <% if post.nil?%>
        <p>사용자가 작성한 게시물이 없습니다</p>
       <% else %>
-      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a class="thumbnail" href="/view_each/<%=post.id%>">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail hovereffect">
           <% if post.post_images.count == 0 || post.post_images[0].avatar.url.nil? || post.finished == true %>
-            <img src="<%=post.image_url%>">
+            <img class = "img-responsive" src="<%=post.image_url%>" style = "height: 100%">
           <% else %>
-            <img class="img-responsive" src="<%= post.post_images[0].avatar.url%>">
-          <% end %></a>
+            <img class="img-responsive" src="<%= post.post_images[0].avatar.url%>" style = "height: 100%">
+          <% end %>
+          <div class="overlay">
+            <h2><%=post.title%></h2>
+            <a class="info" href="/view_each/<%=post.id%>">둘러보기</a>
+          </div>
+        </div>
       </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
  
   <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @myposts, :theme => 'twitter-bootstrap'%></div>  
   <a href = "/home/index"> 홈으로 돌아가기</a>
