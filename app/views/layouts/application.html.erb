@@ -61,8 +61,10 @@
   <ul id="slide-out" class="side-nav">
     <li><div class="userView">
       <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
-      <a href="/myinfo"><span class="black-text name">John Doe</span></a>
-      <a href="/myinfo"><span class="black-text email">jdandturk@gmail.com</span></a>
+      <% unless current_user.nil?%>
+      <a href="/myinfo"><span class="black-text name"><%=current_user.username%></span></a>
+      <a href="/myinfo"><span class="black-text email"><%=current_user.email%></span></a>
+      <% end %>
     </div></li>
     <li><a href="/home/tag/의류"><i class="material-icons">loyalty</i>Clothes</a></li>
     <li><a href="/home/tag/코스메틱"><i class="material-icons">loyalty</i>Cosmetics</a></li>
