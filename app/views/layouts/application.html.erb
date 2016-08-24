@@ -42,11 +42,7 @@
   <div class="navbar-fixed" style="margin-bottom:10px">
     <nav>
       <div class="nav-wrapper" style="background-color:#e57373; width: auto">
-<<<<<<< HEAD
-        <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%;"><img src="/assets/logo.png" style="height:100%;"></a>
-=======
-        <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%"><img src="/assets/logo.png" style="margin-left:50px; height:100%;"></a>
->>>>>>> b15d352c59bbd071dab31f55f0b5eea9f99441f8
+        <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%"><img src="/assets/logo.png" style="height:100%;"></a>
         <ul class="right hide-on-med-and-down">
            <% if current_user %>
            <li><a href="/home/myinfo" style="color:e57373">내 정보</a></li>
@@ -59,8 +55,8 @@
       </div>
     </nav>
   </div>
-
- <!--Side nav로 해보자-->
+<div class="container">
+  <!--Side nav로 해보자-->
   <ul id="slide-out" class="side-nav">
     <li><div class="userView">
       <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
@@ -73,12 +69,10 @@
     <li><a href="/home/tag/티켓"><i class="material-icons">loyalty</i>Tickets</a></li>
     <li><a href="/home/tag/기타"><i class="material-icons">loyalty</i>Etc</a></li>
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse" style="width:100px;"><i class="material-icons" style="margin-left:50px; margin-top:10px; font-size:3.5rem; color:#e57373; clear:right;">toc</i></a>
-        
 <main>  
 <%= yield %>
 </main>
-
+</div>
 
   <footer class="page-footer">
 

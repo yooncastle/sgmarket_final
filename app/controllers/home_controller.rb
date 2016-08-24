@@ -5,7 +5,6 @@ class HomeController < ApplicationController
       @posts=Post.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
-
   def delete
     @del_post = Post.find(params[:post_id])
     @del_post.delete
@@ -36,7 +35,7 @@ class HomeController < ApplicationController
   
     unless params[:avatars].nil?
     params[:avatars].each do |file|
-        PostImage.create!(post_id: @new_post.id, avatar: file)
+        PostImage.create!(post_id: @do_upd_post.id, avatar: file)
       end
     end
     
@@ -110,9 +109,6 @@ class HomeController < ApplicationController
   
 
   def myinfo
-    
-   
-    
   end
   
   def show_user_post
@@ -120,7 +116,6 @@ class HomeController < ApplicationController
   end
   
   def show_reply_post
-
   end
   
 
@@ -144,10 +139,10 @@ class HomeController < ApplicationController
     @writerpost=@nowpost.user.posts.all.page(params[:page]).per(12).order("created_at DESC")
   end
   
-   def search
+  def search
     if params[:search]
        @search = Post.search(params[:search]).all.page(params[:page]).per(12).order("created_at DESC")
     end
-    end
+  end
     
 end

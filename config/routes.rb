@@ -29,10 +29,6 @@ Rails.application.routes.draw do
   get 'home/search'
 
   get 'finish_post/:post_id' => 'home#finish_post'
-<<<<<<< HEAD
-=======
-  
->>>>>>> b15d352c59bbd071dab31f55f0b5eea9f99441f8
   get '/myinfo' => 'home#myinfo'
 
   # The priority is based upon order of creation: first created -> highest priority.
