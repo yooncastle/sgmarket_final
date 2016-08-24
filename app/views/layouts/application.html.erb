@@ -51,15 +51,6 @@
     <nav>
       <div class="nav-wrapper" style="background-color:#e57373; width: auto">
         <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%"><img src="/assets/logo.png" style="height:100%;"></a>
-        <ul class="right hide-on-med-and-down">
-           <% if current_user %>
-           <li><a href="/home/myinfo" style="color:e57373">내 정보</a></li>
-           <li><a href="/users/sign_out" style="color:white">로그아웃</a></li>
-           <% else %>
-           <li><a href="/users/sign_in" style="color:white">로그인</a></li>
-           <% end %>
-           <li><a href = "/home/write" style="color:white">글 써볼래?</a></li>
-        </ul>
       </div>
     </nav>
   </div>
