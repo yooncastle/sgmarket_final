@@ -19,6 +19,14 @@
   <style type="text/css">
     .page-footer {
      padding-top: 0px !important;  
+     position: fixed; 
+     bottom:0px;
+     left:0px;
+     right:0px;
+     margin-bottom:0px;
+    }
+    .container {
+     margin-bottom:50px;
     }
   </style>
 
@@ -87,6 +95,7 @@
 <main>  
 <%= yield %>
 </main>
+<!-- 바로 밑줄 div container 닫는거 -->
 </div>
   <footer class="page-footer">
 
@@ -98,9 +107,7 @@
     </div>
     
   </footer> 
-  
-     
-    </div>
+ 
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -114,6 +121,7 @@
     });
     
    $(".button-collapse").sideNav();
+   
    
   </script>
     
