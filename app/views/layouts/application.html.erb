@@ -19,6 +19,14 @@
   <style type="text/css">
     .page-footer {
      padding-top: 0px !important;  
+     position: fixed; 
+     bottom:0px;
+     left:0px;
+     right:0px;
+     margin-bottom:0px;
+    }
+    .container {
+     margin-bottom:50px;
     }
   </style>
 
@@ -78,6 +86,8 @@
     <a class="btn-floating btn-large brown lighten-2">
       <i class="material-icons">menu</i>
     </a>
+
+
     <ul>
       <% if current_user %>
       <li><a class="btn-floating #8c9eff #ea80fc blue lighten-3" href = "/home/myinfo"><i class="material-icons">person_pin</i></a></li>
@@ -107,8 +117,10 @@
       </div>
     </div>
     
+
   </footer>
      
+
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -122,6 +134,7 @@
     });
     
    $(".button-collapse").sideNav();
+   
    
   </script>
   

@@ -149,5 +149,14 @@ class HomeController < ApplicationController
        @search = Post.search(params[:search]).all.page(params[:page]).per(12).order("created_at DESC")
     end
   end
+   
+  def change_pic
     
+    @picture=["/assets/angel", "/assets/blushed","/assets/crushed","/assets/happy","/assets/hugging","/assets/kissing","/assets/money","/assets/nerdy","/assets/smile","/assets/sunglass","/assets/wink"]
+    @change_userpic=User.find_by(id: params[:user_id])
+    @change_userpic.userpic=@picture.sample
+    @change_userpic.save
+    
+    redirect_to :back
+  end
 end
