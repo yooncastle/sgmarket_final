@@ -1,22 +1,9 @@
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
     
     <div class="field">
       <p><%= f.label :닉네임 %><br />
       <%= f.text_field :username, autofocus: true %></p>
-    </div>
-    
-    <div class="field">
-
-      <p><%= f.label :프로필_표정 %><br />
-      <select class="image-picker show-html">
-        <option data-img-src="/assets/angel.png" style="width:5%" value="1">Cute Kitten 1</option>
-        <option data-img-src="/assets/blushed.png" style="width:5%" value="2">Cute Kitten 2</option>
-        <option data-img-src="/assets/crushed.png" style="width:5%" value="3">Cute Kitten 3</option>
-      </select>
-
-      <%= f.text_field :userpic %></p>
     </div>
     
     <div class="field">
