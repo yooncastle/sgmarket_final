@@ -46,6 +46,7 @@ class HomeController < ApplicationController
   end
   
   def complete
+    
     @new_post = Post.new
     
    # @new_post.avatars= params.permit({:avatars => []})
@@ -83,7 +84,11 @@ class HomeController < ApplicationController
     tag = Tag.find_or_create_by(name: params[:hashtag3])
     Hashtag.create(post_id: @new_post.id, tag_id: tag.id)
     
-    redirect_to "/home/index"
+    if params[:title].blank?
+      redirect_to :back
+    else
+     redirect_to "/home/index"
+    end
   end
  
   def view_each
