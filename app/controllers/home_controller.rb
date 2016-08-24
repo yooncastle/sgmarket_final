@@ -36,7 +36,7 @@ class HomeController < ApplicationController
   
     unless params[:avatars].nil?
     params[:avatars].each do |file|
-        PostImage.create!(post_id: @new_post.id, avatar: file)
+        PostImage.create!(post_id: @do_upd_post.id, avatar: file)
       end
     end
     
