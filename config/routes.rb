@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   post 'home/reply_write'
   get 'delete_reply/:reply_id' => 'home#delete_reply'
 
+  get 'password_delete/:post_id' => 'home#password_delete'
+  get 'password_edit/:post_id' => 'home#password_edit'
+  get 'password_finish/:post_id' => 'home#password_finish'
   get '/home/hashtag/:name', to: 'home#hashtags'
 
   get 'home/tag/:name' => 'home#tags'
