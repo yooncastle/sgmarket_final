@@ -17,26 +17,28 @@
   </div>
   
   <div class="row" >
-    <% @posts.each do |p| %>
-      <% if p.nil?%>
-      <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">해당 태그가 없습니다.</span>
-      <% end %>
-      
-      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a class="thumbnail" href="/view_each/<%=p.id%>">
-        <!-- change -->
-          <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
-            <img src="<%=p.image_url%>">
-          <% else %>
-            <% if p.finished == true %>
-              <img class="img-responsive" src="<%= p.image_url %>">
+    <%unless @posts.nil?%>
+      <% @posts.each do |p| %>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+          <a class="thumbnail" href="/view_each/<%=p.id%>">
+          <!-- change -->
+            <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
+              <img src="<%=p.image_url%>">
             <% else %>
-              <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
+              <% if p.finished == true %>
+                <img class="img-responsive" src="<%= p.image_url %>">
+              <% else %>
+                <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
+              <% end %>
             <% end %>
-          <% end %>
-        </a>
-      </div>
+          </a>
+        </div>
+      <% end %>
+    <% else %>
+       <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">해당 태그가 없습니다.</span>
     <% end %>
-    
+      
   </div>
+  <%unless @posts.nil?%>
   <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>
+  <% end %>

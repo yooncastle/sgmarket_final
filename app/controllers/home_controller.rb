@@ -143,7 +143,9 @@ class HomeController < ApplicationController
 
   def tags
     tag = Tag.find_by(name: params[:name])
+    unless tag.nil?
     @posts = tag.posts.all.page(params[:page]).per(12).order("created_at DESC")
+    end
   end
   
   
