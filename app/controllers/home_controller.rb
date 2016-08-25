@@ -123,7 +123,7 @@ class HomeController < ApplicationController
     @new_reply = Reply.new
     @new_reply.content = params[:comment]
     @new_reply.post_id = params[:id_of_post]
-    @new_reply.user_id = params[:user_id]
+    @new_reply.user_id = current_user.id
     @new_reply.save
     
     redirect_to :back
@@ -138,6 +138,9 @@ class HomeController < ApplicationController
   end
   
   def show_reply_post
+  
+    @myreply=current_user.replies
+ 
   end
   
 

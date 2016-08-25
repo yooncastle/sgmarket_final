@@ -67,7 +67,7 @@
 
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
-           <p> <%= x.user_id %> : <%= x.content %> 
+           <p> <%= x.user.username%> : <%= x.content %> 
            <% if user_signed_in? && current_user.username==x.user_id %>
            <a href="/delete_reply/<%=x.id%>">[x]</a>
            <% end %>
@@ -76,7 +76,7 @@
            <p style="text-align:right; font-size:9px"><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%m월%d일 %H시") %></p>
           <% end %>
           <form action="/home/reply_write" method="POST">
-            <input type = "hidden" value = "<%= current_user.username %>" name ="user_id">
+          
             <div class="form-group">
               <label for="Reply">댓글쓰기</label>
               <input type = "hidden" value = "<%= @one_post.id %>" name ="id_of_post">

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'home/tag/:name' => 'home#tags'
 
   get 'home/show_user_post' => 'home#show_user_post'
+  get 'home/show_reply_post' => 'home#show_reply_post'
   get 'home/alarm'
   get 'writer_post/:post_id' => 'home#writer_post'
   get 'home/search'

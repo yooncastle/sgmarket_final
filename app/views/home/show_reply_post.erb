@@ -7,29 +7,39 @@
           <i class="material-icons prefix" style="margin-top:5px; color:#e57373;">search</i>
           <input id="icon_prefix" type="text" class="validate" name="search">
           <label for="icon_prefix">Search</label>
+         </div>
+       </div>
+     </form>
+   </div>
+
+  <p>댓글을 단 게시물 확인</p>
+  
+  <div class="row" height: 100%>
+     <%  array = [] %>
+     <% @myreply.each do |r| %>
+           <%  array << r.post_id %>
+     <% end %>
+   
+     <% array=array.uniq%>
+     <% array.each do |a|%>
+        <div class="col-sm-6 col-md-4">
+          
+          <div class="thumbnail hovereffect">
+          <% post = Post.find(a) %>
+          <% if post.post_images.count == 0 || post.post_images[0].avatar.url.nil? || post.finished == true %>
+            <img class = "img-responsive" src="<%=post.image_url%>" style = "height: 100%">
+          <% else %>
+            <img class="img-responsive" src="<%= post.post_images[0].avatar.url%>" style = "height: 100%">
+          <% end %>
+          <div class="overlay">
+            <h2><%=post.title%></h2>
+            <a class="info" href="/view_each/<%=a%>">둘러보기</a>
+          </div>
         </div>
       </div>
-    </form>
-  </div>
+      <% end %>
+     
 
-  댓글을 단 게시물 확인
-  <div class="row" height: 100%>
-    <% @myposts.each do |post| %>
-      <% if post.nil?%>
-     <p>사용자가 작성한 게시물이 없습니다</p>
-    <% else %>
-    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-      <a href="/view_each/<%=post.id%>">
-          <% if post.image_url.nil? %>
-            <img src="/assets/emptyimage.png" class="img-responsive" height="auto" alt="">
-          <% else %>
-            <img class="img-responsive" src="<%= post.image_url%>" height="auto" alt="">
-          <% end %>
-        </a>
-    </div>
-    <% end %>
-    <% end %>
-    
   </div>
-<div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @myposts, :theme => 'twitter-bootstrap'%></div>
-<a href = "/home/index"> 홈으로 돌아가기</a>
+   
+      
