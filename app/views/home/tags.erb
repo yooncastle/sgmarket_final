@@ -11,33 +11,33 @@
       </div>
     </form>
   </div>
-  <div class = "row">
-    <i class ="material-icons prefix" style = "color:#8c8c8c">done_all</i>
-    <span style="font-size:13pt;color: #ffab40; font-weight:bold"># <%= params[:name] %></span><span style="font-size:13pt;color:#8c8c8c; font-weight:bold"> 에 대한 검색결과</span></span>
-  </div>
   
   <div class="row" >
+    <div class = "row">
+      <i class ="material-icons prefix" style = "color:#8c8c8c">done_all</i>
+      <span style="font-size:13pt;color: #ffab40; font-weight:bold"># <%= params[:name] %></span><span style="font-size:13pt;color:#8c8c8c; font-weight:bold"> 에 대한 검색결과</span></span>
+    </div>
+  
     <% @posts.each do |p| %>
       <% if p.nil?%>
-      <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">해당 태그가 없습니다.</span>
-      <% end %>
-      
-      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a class="thumbnail" href="/view_each/<%=p.id%>">
+        <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">해당 태그가 없습니다.</span>
+      <% else %>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail hovereffect">
         <!-- change -->
-          <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? %>
-            <img src="<%=p.image_url%>">
-          <% else %>
-            <% if p.finished == true %>
-              <img class="img-responsive" src="<%= p.image_url %>">
+            <% if p.post_images.count == 0 || p.post_images[0].avatar.url.nil? || p.finished == true %>
+              <img class = "img-responsive" src="<%=p.image_url%>" style = "height: 100%">
             <% else %>
-              <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>">
+              <img class="img-responsive" src="<%= p.post_images[0].avatar.url%>" style = "height: 100%">
             <% end %>
-          <% end %>
-        </a>
-      </div>
+            <div class="overlay">
+              <h2><%=p.title%></h2>
+              <a class="info" href="/view_each/<%=p.id%>">둘러보기</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-    
   </div>
   <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>
   
