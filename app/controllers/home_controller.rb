@@ -7,9 +7,18 @@ class HomeController < ApplicationController
   
   def delete
     @del_post = Post.find(params[:post_id])
-    @del_post.delete
-    
-    redirect_to "/home/index"
+    resource = User.find_for_database_authentication(id: current_user.id)
+    if resource.valid_password?(params[:delete_password])
+      @del_post.destroy
+      redirect_to "/home/index"
+    else
+      redirect_to :back
+    end
+  
+  end
+  
+  def password_delete
+   @will_deleted = Post.find(params[:post_id])
   end
   
   def delete_reply
@@ -21,8 +30,16 @@ class HomeController < ApplicationController
   
   def update_view
     @upd_post = Post.find(params[:post_id])
+    resource = User.find_for_database_authentication(id: current_user.id)
+    unless resource.valid_password?(params[:edit_password])
+      redirect_to :back
+    end
   end
 
+  def password_edit
+    @will_edit = Post.find(params[:post_id])
+  end
+ 
   def do_update
     
     @do_upd_post = Post.find(params[:post_id])
@@ -132,13 +149,24 @@ class HomeController < ApplicationController
   
   def finish_post
     @fin_post=Post.find(params[:post_id])
-    @fin_post.finished=1
-    @fin_post.image_url="/assets/finished_pic.png"
-    @fin_post.save
     
-    redirect_to :back
+    resource = User.find_for_database_authentication(id: current_user.id)
+    if resource.valid_password?(params[:edit_password])
+      @fin_post.finished=1
+      @fin_post.image_url="/assets/finished_pic.png"
+      @fin_post.save
+      redirect_to "/home/index"
+    else
+      redirect_to :back
+    end
+   
+    
+   
   end
   
+  def password_finish
+     @will_finish = Post.find(params[:post_id])
+  end
   def writer_post
     @nowpost=Post.find(params[:post_id])
     @writerpost=@nowpost.user.posts.all.page(params[:page]).per(12).order("created_at DESC")
