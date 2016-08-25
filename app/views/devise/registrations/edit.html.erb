@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="container" style="margin-top:50px">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     
     <div class="field">
@@ -39,14 +38,13 @@
   
   
     <div class="actions" >
-      <a class="waves-effect waves-light btn">
+      <a class="waves-effect waves-light btn deep-orange lighten-2">
       <%= f.submit "수정하기" %></a>
       <% end %>
+      <a class="waves-effect waves-light btn grey" ><%= button_to "계정탈퇴하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하실건가요?" }, method: :delete %></a>
     </div>
-   <br>
-  <a class="waves-effect waves-light btn" ><%= button_to "계정탈퇴하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하실건가요?" }, method: :delete %></a>
-
+   <hr>
   <br><br>
     
-  <%= link_to "뒤로 돌아가기", :back %>
+  
 </div>

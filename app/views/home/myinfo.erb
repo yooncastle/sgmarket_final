@@ -9,22 +9,22 @@
       <% end %>
       <p>닉네임: <%=current_user.username%></p>
       <p>이메일: <%= current_user.email %><br>
-         <a href="/users/edit">정보 수정하러가기</a>
+         <a href="/users/edit" style="color:#7986cb">정보 수정하러가기</a>
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <a href="#!" class="secondary-content"></a>
     </li>
     <li class="collection-item avatar">
-      <i class="material-icons circle brown lighten-2">mode_edit</i>
-      <span class="title"><a href="/home/show_user_post">내가 쓴 글</span></a><br>
+      <i class="material-icons circle red accent-1">mode_edit</i>
+      <span class="title"><a href="/home/show_user_post" style="color:#7986cb">내가 쓴 글</span></a><br>
       <span class="title">내가 댓글을 단 게시물</span>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <a href="#!" class="secondary-content"></a>
     </li>
-    <li class="collection-item"><div>인증여부<a href="https://saint.sogang.ac.kr" target="_blank" class="secondary-content">인증하러가기</i></a></div></li>
-    <li class="collection-item"><div>새로 달린 댓글 확인하기<a href="/home/alarm" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>인증여부<a href="https://saint.sogang.ac.kr" target="_blank" class="secondary-content" style="color:#ff8a80">인증하러가기</i></a></div></li>
+    <li class="collection-item"><div>새로 달린 댓글 확인하기<a href="/home/alarm" class="secondary-content"><i class="material-icons" style="color:#ff8a80">send</i></a></div></li>
     <li class="collection-item">
       <form action="/home/change_pic" method="GET">
         <input type = "hidden" value = "<%= current_user.id %>" name ="user_id">
-        <button class="btn waves-effect waves-teal brown lighten-2" type="submit">프로필 표정 바꾸기</button>
+        <button class="btn waves-effect waves-light red accent-1" type="submit">프로필 표정 바꾸기</button>
       </form>  
     </li>
   </ul>
