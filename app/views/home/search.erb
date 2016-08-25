@@ -12,24 +12,37 @@
     </form>
   </div>
 
-  <%=params[:search]%>에 대한 검색결과입니다<br>      
-  <div class="row" height: 100%>
-   <%@search.each do |search|%>
-      <% if search.nil?%>
-     <p>검색결과가 없습니다</p>
-    <% else %>
-    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-      <a href="/view_each/<%=search.id%>">
-          <% if search.image_url.nil? %>
-          <img src="/assets/emptyimage.png" class="img-responsive" height="auto" alt="">
-          <% else %>
-            <img class="img-responsive" src="<%= search.image_url%>" height="auto" alt="">
-        <% end %>
-        </a>
-    </div>
-    <% end %>
-    <% end %>
-  
+  <div class = "row">
+    <i class ="material-icons prefix" style = "color:#8c8c8c">search</i>
+    <span style="font-size:13pt;color: #ffab40; font-weight:bold"><%=params[:search]%></span><span style="font-size:13pt;color:#8c8c8c; font-weight:bold">에 대한 검색결과입니다</span>
   </div>
+        
+  <div class="row"  id = "box-search">
+    <%@search.each do |search|%>
+      <% if search.nil?%>
+        <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">검색결과가 없습니다</span>
+      <% else %>
+       <div class="col-sm-6 col-md-4">
+        <!-- change -->
+        <div class = "thumbnail hovereffect">
+          <% if search.post_images.count == 0 || search.post_images[0].avatar.url.nil? || search.finished == true %>
+            <img class="img-responsive" src="<%=search.image_url%>">
+          <% else %>
+            <img class="img-responsive" src="<%= search.post_images[0].avatar.url%>" style="height:100%"> 
+          <% end %>
+           <div class="overlay">
+             <h2><%=search.title%></h2>
+             <a class="info" href="/view_each/<%=search.id%>">둘러보기</a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  
   <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @search, :theme => 'twitter-bootstrap'%></div>
-  <a href = "/home/index"> 홈으로 돌아가기</a>
+ 
+  <div class = "row">
+    <i class ="material-icons prefix" style = "color:#8c8c8c">restore</i>
+    <a href ="javascript:history.back()" style="font-size:13pt;color: #ffab40"> 뒤로 돌아가기</a>
+  </div>
