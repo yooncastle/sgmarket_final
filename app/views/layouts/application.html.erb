@@ -19,15 +19,9 @@
   <style type="text/css">
     .page-footer {
      padding-top: 0px !important;  
-     position: fixed; 
-     bottom:0px;
-     left:0px;
-     right:0px;
-     margin-bottom:0px;
     }
-    .container {
-     margin-bottom:50px;
-    }
+    
+   
   </style>
 
     <!-- Bootstrap Core CSS -->
@@ -136,7 +130,13 @@
     
    $(".button-collapse").sideNav();
    
-   
+   $(document).ready(function() {
+
+  var viewportHeight = $(document).height();
+
+  $('main').css('min-height', viewportHeight - 150 ); // minus size of your header & footer
+
+});
   </script>
   
 </body>
