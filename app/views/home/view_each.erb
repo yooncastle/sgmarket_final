@@ -96,8 +96,8 @@
           
           <!--admin일때 수정/삭제하기-->
           <% if current_user.admin? %>
-            <a href="/password_delete/<%= @one_post.id %>">삭제</a>
-            <a href="/password_edit/<%= @one_post.id %>">수정</a>
+            <a href="/delete/<%= @one_post.id %>">삭제</a>
+            <a href="/update_view/<%= @one_post.id %>">수정</a>
           <% end %> 
           
           <a href="/home/index">목록</a>
@@ -106,4 +106,3 @@
     </div>
   </div>
 </div>
-
