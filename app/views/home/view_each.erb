@@ -68,7 +68,7 @@
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
            <p> <%= x.user.username%> : <%= x.content %> 
-           <% if user_signed_in? && current_user.id==x.user_id %>
+           <% if user_signed_in? && current_user.username==x.user_id %>
            <a href="/delete_reply/<%=x.id%>">[x]</a>
            <% end %>
            </p>
@@ -96,8 +96,8 @@
           
           <!--admin일때 수정/삭제하기-->
           <% if current_user.admin? %>
-            <a href="/password_delete/<%= @one_post.id %>">삭제</a>
-            <a href="/password_edit/<%= @one_post.id %>">수정</a>
+            <a href="/delete/<%= @one_post.id %>">삭제</a>
+            <a href="/update_view/<%= @one_post.id %>">수정</a>
           <% end %> 
           
           <a href="/home/index">목록</a>
@@ -106,4 +106,3 @@
     </div>
   </div>
 </div>
-

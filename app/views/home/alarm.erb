@@ -8,7 +8,7 @@
     <% current_user.posts.each do |p| %>
         <% new_count=p.replies.where("id> ?", p.replycount).count %>
         <% if new_count>0%>
-          <li class="collection-item"><div><%=p.title%>에 <%=new_count%>개의 댓글이 추가되었습니다 <a href="/view_each/<%=p.id%>">보러가기</a><br></div></li>
+          <li class="collection-item"><div><%=p.title%>에 <%=new_count%>개의 댓글이 추가되었습니다<br><a href="/view_each/<%=p.id%>">보러가기</a><br></div></li>
         <% else %>
            <li class="collection-item"><div>새로 달린 댓글이 없습니다<br></div></li>
         <% end %>  
