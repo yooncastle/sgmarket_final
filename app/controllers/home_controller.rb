@@ -140,7 +140,12 @@ class HomeController < ApplicationController
   def show_reply_post
   
     @myreply=current_user.replies
- 
+    array = [] 
+    @myreply.each do |r| 
+      array << r.post_id 
+    end 
+    @array=array.uniq
+  
   end
   
 
