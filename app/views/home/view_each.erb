@@ -68,7 +68,7 @@
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
            <p> <%= x.user.username%> : <%= x.content %> 
-           <% if user_signed_in? && current_user.username==x.user_id %>
+           <% if user_signed_in? && current_user.id==x.user_id %>
            <a href="/delete_reply/<%=x.id%>">[x]</a>
            <% end %>
            </p>
