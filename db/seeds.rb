@@ -35,5 +35,5 @@ Post.create(id:"24", title:"블라우스팔아요", content:"신촌에서 거래
 User.create(id:1, email:'admin@sgmarket.com', password:'djemals',username:'admin',realname:'어드민', admin:true, userpic:"/assets/hugging.png")
 User.create(id:2, email:'yooncastle@gmail.com',password:'rladbstjd', username:'윤성', realname:'김윤성', admin:false, userpic:"/assets/money.png")
 User.create(id:3, email:'111@naver.com', password: 'rkdqhrud', username:'보경', realname:'강보경', admin:false, userpic:"/assets/hugging.png")
-User.create(id:4, email:'222@naver.com', password: 'dlcksgk', username:'찬하', realname:'이찬하', admin:false, userpic:"/assets/happy.png")
+User.create(id:4, email:'a960401sogang@gmail.com', password: 'lchmm516578', username:'찬하', realname:'이찬하', admin:false, userpic:"/assets/happy.png")
 User.create(id:5, email:'333@naver.com', password: 'dlgPdls', username:'혜인', realname:'이혜인', admin:false, userpic:"/assets/blushed.png")
