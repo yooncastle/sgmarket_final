@@ -42,14 +42,16 @@
           <p><%=simple_format @one_post.content %></p>
         </div>
         
+        
+        
         <div class="card-content">
           <ul class="collection">
             <li class="collection-item avatar">
               <img src="<%= @one_post.user.userpic %>" class="circle">
               <!--<i class="large material-icons; circle">hi</i>-->
-              <span class="title"><%= @one_post.user.username %></span>
+              <span class="title" style="font-weight:bold; color:grey"><%= @one_post.user.username %></span>
               <p><%= @one_post.contact %> <br>
-              <a href="/writer_post/<%= @one_post.id %>">다른 게시물</a>
+              <a href="/writer_post/<%= @one_post.id %>" style="color:#7986cb">다른 게시물</a>
               </p>
             </li>
           </ul>
@@ -67,7 +69,7 @@
 
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
-           <p> <%= x.user.username%> : <%= x.content %> 
+           <p> <img src="<%=x.user.userpic%>" class="circle" style="width:30px; height:auto;"> &nbsp;<span style="font-weight:bold; color:#7986cb"><%= x.user.username%></span>&nbsp;&nbsp;&nbsp;<span style="font-weight:bold; color:#8c8c8c"><%= x.content %></span> 
            <% if user_signed_in? && current_user.id==x.user_id %>
            <a href="/delete_reply/<%=x.id%>">[x]</a>
            <% end %>
@@ -78,7 +80,7 @@
           <form action="/home/reply_write" method="POST">
           
             <div class="form-group">
-              <label for="Reply">댓글쓰기</label>
+              <label for="reply">댓글쓰기</label>
               <input type = "hidden" value = "<%= @one_post.id %>" name ="id_of_post">
                 <input name = "comment" style="width:70%" class="form-control" id="reply" placeholder="댓글을 입력해주세요">
                 <button type="submit" style="display:inline-block; background-color:#9e9e9e;" class="btn waves-effect waves-light;">입력</button>

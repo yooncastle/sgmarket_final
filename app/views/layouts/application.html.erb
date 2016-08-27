@@ -56,15 +56,20 @@
     <li><div class="userView">
       <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
       <% unless current_user.nil?%>
-      <a href="/myinfo"><span class="black-text name"><%=current_user.username%></span></a>
-      <a href="/myinfo"><span class="black-text email"><%=current_user.email%></span></a>
+        <ul class="collection">
+          <li class="collection-item avatar">
+            <img src="<%= current_user.userpic %>" class="circle">
+            <!--<i class="large material-icons; circle">hi</i>-->
+            <span class="title" style="font-weight:bold; color:grey"><%= current_user.username %></span>
+          </li>
+        </ul>
       <% end %>
     </div></li>
-    <li><a href="/home/tag/의류"><i class="material-icons">loyalty</i>의류</a></li>
-    <li><a href="/home/tag/코스메틱"><i class="material-icons">loyalty</i>화장품</a></li>
-    <li><a href="/home/tag/책"><i class="material-icons">loyalty</i>서적</a></li>
-    <li><a href="/home/tag/티켓"><i class="material-icons">loyalty</i>쿠폰/티켓</a></li>
-    <li><a href="/home/tag/기타"><i class="material-icons">loyalty</i>기타</a></li>
+    <li><a href="/home/tag/의류" style="color:#8c8c8c; font-weight:bold"><i class="material-icons" style="color:#81d4fa">loyalty</i>  의류</a></li>
+    <li><a href="/home/tag/코스메틱" style="color:#8c8c8c; font-weight:bold"><i class="material-icons" style="color:#4db6ac">loyalty</i>  화장품</a></li>
+    <li><a href="/home/tag/책" style="color:#8c8c8c; font-weight:bold"><i class="material-icons" style="color:#ffd54f">loyalty</i>  서적</a></li>
+    <li><a href="/home/tag/티켓" style="color:#8c8c8c; font-weight:bold"><i class="material-icons" style="color:#ff8a65">loyalty</i>  쿠폰/티켓</a></li>
+    <li><a href="/home/tag/기타" style="color:#8c8c8c; font-weight:bold"><i class="material-icons" style="color:#ef5350">loyalty</i>  기타</a></li>
   </ul>
   
   <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
