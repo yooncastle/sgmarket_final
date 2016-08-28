@@ -47,9 +47,12 @@
         <div class="card-content">
           <ul class="collection">
             <li class="collection-item avatar">
+              
               <img src="<%= @one_post.user.userpic %>" class="circle">
               <!--<i class="large material-icons; circle">hi</i>-->
+
               <span class="title" style="font-weight:bold; color:grey"><%= @one_post.user.username %></span>
+
               <p><%= @one_post.contact %> <br>
               <a href="/writer_post/<%= @one_post.id %>" style="color:#7986cb">다른 게시물</a>
               </p>

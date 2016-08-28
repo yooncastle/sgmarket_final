@@ -32,7 +32,7 @@ class HomeController < ApplicationController
     @upd_post = Post.find(params[:post_id])
     resource = User.find_for_database_authentication(id: current_user.id)
     unless resource.valid_password?(params[:edit_password])
-      redirect_to :back
+      redirect_to "/home/index"
     end
   end
 
@@ -56,6 +56,18 @@ class HomeController < ApplicationController
       end
     end
     
+    @do_upd_post.tags=[]
+    tag = Tag.find_or_create_by(name: params[:category])
+    Hashtag.create(post_id: @do_upd_post.id, tag_id: tag.id)
+    
+    tag = Tag.find_or_create_by(name: params[:hashtag1])
+    Hashtag.create(post_id: @do_upd_post.id, tag_id: tag.id)
+    
+    tag = Tag.find_or_create_by(name: params[:hashtag2])
+    Hashtag.create(post_id: @do_upd_post.id, tag_id: tag.id)
+  
+    tag = Tag.find_or_create_by(name: params[:hashtag3])
+    Hashtag.create(post_id: @do_upd_post.id, tag_id: tag.id)
     @do_upd_post.save
     
     redirect_to "/home/index"
