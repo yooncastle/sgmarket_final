@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   get 'home/myinfo'
 
   get 'delete/:post_id' => 'home#delete'
+  post 'update_view/:post_id' => 'home#update_view'
   get 'update_view/:post_id' => 'home#update_view'
   post 'do_update/:post_id' => 'home#do_update'
+  get 'do_update/:post_id' => 'home#do_update'
   get 'view_each/:post_id' => 'home#view_each'
   post 'home/reply_write'
   get 'delete_reply/:reply_id' => 'home#delete_reply'
