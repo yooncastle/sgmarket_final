@@ -20,8 +20,13 @@
     .page-footer {
      padding-top: 0px !important;  
     }
-    
-   
+    .parallax-container {
+      height: 650px;
+    }
+    .slider .slides img {
+      height: auto;
+      width: auto;
+    }
   </style>
 
     <!-- Bootstrap Core CSS -->
@@ -133,6 +138,11 @@
   $('main').css('min-height', viewportHeight - 150 ); // minus size of your header & footer
 
   });
+  
+  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
   </script>
   
 </body>
