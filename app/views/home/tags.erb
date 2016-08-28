@@ -17,11 +17,10 @@
       <i class ="material-icons prefix" style = "color:#8c8c8c">done_all</i>
       <span style="font-size:13pt;color: #ffab40; font-weight:bold"># <%= params[:name] %></span><span style="font-size:13pt;color:#8c8c8c; font-weight:bold"> 에 대한 검색결과</span></span>
     </div>
-  
+    
+    <%unless @posts.nil?%>
     <% @posts.each do |p| %>
-      <% if p.nil?%>
-        <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">해당 태그가 없습니다.</span>
-      <% else %>
+      
          <div class="col-sm-6 col-md-4">
           <div class="thumbnail hovereffect">
         <!-- change -->
@@ -36,11 +35,17 @@
             </div>
           </div>
         </div>
-      <% end %>
+     
     <% end %>
-  </div>
-  <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>
+    <% else %>
+        <span style="font-size:13pt;color:#8c8c8c; font-weight:bold">해당 태그가 없습니다.</span>
+    <% end %>
   
+  </div>
+  
+   <%unless @posts.nil?%>
+  <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>
+   <% end %>
   <div class = "row">
     <i class ="material-icons prefix" style = "color:#8c8c8c">restore</i>
     <a href ="javascript:history.back()" style="font-size:13pt;color: #ffab40"> 뒤로 돌아가기</a>
