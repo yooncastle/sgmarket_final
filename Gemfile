@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 gem 'bootstrap-kaminari-views'
 gem 'search_cop'
 gem 'kaminari'
-gem 'bootstrap-kaminari-views'
 gem 'materialize-sass'
 # use bootstrap gem
 gem 'bootstrap-sass'
