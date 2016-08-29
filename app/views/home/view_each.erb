@@ -38,11 +38,10 @@
         </div>
        
         <div class="card-content">
-          <span class="card-title" style="color: #17202A"><%=@one_post.title %></span>
+          <span class="card-title" style="color:#8c8c8c; font-weight:bold"><%=@one_post.title %></span>
           <p><%=simple_format @one_post.content %></p>
+          <p style="float:right"><span style="color:#ffab40; font-weight:bold">가격</span> <span style="font-weight:bold"><%= @one_post.price %></span></p>
         </div>
-        
-        
         
         <div class="card-content">
           <ul class="collection">
@@ -102,7 +101,6 @@
           <!--admin일때 수정/삭제하기-->
           <% if current_user.admin? %>
             <a href="/delete/<%= @one_post.id %>">삭제</a>
-            <a href="/update_view/<%= @one_post.id %>">수정</a>
           <% end %> 
           
           <a href="/home/index">목록</a>

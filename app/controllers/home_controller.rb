@@ -11,6 +11,9 @@ class HomeController < ApplicationController
     if resource.valid_password?(params[:delete_password])
       @del_post.destroy
       redirect_to "/home/index"
+    elsif current_user.admin?
+      @del_post.destroy
+      redirect_to "/home/index"  
     else
       redirect_to :back
     end
@@ -51,6 +54,7 @@ class HomeController < ApplicationController
     @do_upd_post.user_id = current_user.id
   
     unless params[:avatars].nil?
+    @do_upd_post.post_images.clear
     params[:avatars].each do |file|
         PostImage.create!(post_id: @do_upd_post.id, avatar: file)
       end
