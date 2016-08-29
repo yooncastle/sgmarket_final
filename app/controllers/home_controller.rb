@@ -70,7 +70,7 @@ class HomeController < ApplicationController
     Hashtag.create(post_id: @do_upd_post.id, tag_id: tag.id)
     @do_upd_post.save
     
-    redirect_to "/home/index"
+    redirect_to "/view_each/#{@do_upd_post.id}"
   end
   
   def complete

@@ -44,7 +44,8 @@
   </div>
   
    <%unless @posts.nil?%>
-  <div style="margin-left: auto; margin-right: auto; width:300px"> <%=paginate @posts, :theme => 'twitter-bootstrap'%></div>
+  
+   <div class="pagination" style="min-width:320px"> <%=paginate @posts, :window => 2%></div>
    <% end %>
   <div class = "row">
     <i class ="material-icons prefix" style = "color:#8c8c8c">restore</i>
