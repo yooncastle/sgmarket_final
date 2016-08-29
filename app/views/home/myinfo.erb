@@ -5,7 +5,7 @@
 </div>
 <ul class="collection with-header">
   <li class="collection-item avatar">
-    <img src="<%= current_user.userpic %>" class="circle">
+    <img src="<%= image_path current_user.userpic %>" class="circle">
     <% if current_user.admin? %>
       <p>어드민계정입니다.</p>
     <% end %>

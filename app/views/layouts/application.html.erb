@@ -63,7 +63,7 @@
       <% unless current_user.nil?%>
         <ul class="collection">
           <li class="collection-item avatar">
-            <img src="<%= current_user.userpic %>" class="circle">
+            <img src="<%=image_path current_user.userpic %>" class="circle">
             <!--<i class="large material-icons; circle">hi</i>-->
             <a style="font-weight:bold; color:grey; padding:0px;  margin:0px; font-size:1rem; border-collapse: collapse;border-spacing: 0;" href = "/home/myinfo" ><%= current_user.username %></a>
           </li>
