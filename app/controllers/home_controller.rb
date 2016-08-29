@@ -206,7 +206,7 @@ class HomeController < ApplicationController
    
   def change_pic
     
-    @picture=["/assets/angel", "/assets/blushed","/assets/crushed","/assets/happy","/assets/hugging","/assets/kissing","/assets/money","/assets/nerdy","/assets/smile","/assets/sunglass","/assets/wink","/assets/1","/assets/2","/assets/3","/assets/4","/assets/5","/assets/6","/assets/7","/assets/8","/assets/9","/assets/10","/assets/11","/assets/12","/assets/13","/assets/14","/assets/15"]
+    @picture=["angel", "blushed","crushed","happy","hugging","kissing","money","nerdy","smile","sunglass","wink","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
     @change_userpic=User.find_by(id: params[:user_id])
     @change_userpic.userpic=@picture.sample
     @change_userpic.save
