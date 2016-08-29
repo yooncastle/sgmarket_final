@@ -20,8 +20,13 @@
     .page-footer {
      padding-top: 0px !important;  
     }
-    
-   
+    .parallax-container {
+      height: 650px;
+    }
+    .slider .slides img {
+      height: auto;
+      width: auto;
+    }
   </style>
 
     <!-- Bootstrap Core CSS -->
@@ -60,7 +65,7 @@
           <li class="collection-item avatar">
             <img src="<%= current_user.userpic %>" class="circle">
             <!--<i class="large material-icons; circle">hi</i>-->
-            <span class="title" style="font-weight:bold; color:grey"><%= current_user.username %></span>
+            <a style="font-weight:bold; color:grey; padding:0px;  margin:0px; font-size:1rem; border-collapse: collapse;border-spacing: 0;" href = "/home/myinfo" ><%= current_user.username %></a>
           </li>
         </ul>
       <% end %>
@@ -133,6 +138,11 @@
   $('main').css('min-height', viewportHeight - 150 ); // minus size of your header & footer
 
   });
+  
+  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
   </script>
   
 </body>
