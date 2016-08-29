@@ -49,7 +49,7 @@
   <div class="navbar-fixed" style="margin-bottom:10px">
     <nav>
       <div class="nav-wrapper" style="background-color:#e57373; width: auto">
-        <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%"><img src="/assets/logo.png" style="height:100%;"></a>
+        <a href="/home/index" class="brand-logo center" style="color:#e57373; height:100%"><img src="<%= image_path 'logo.png'%>" style="height:100%;"></a>
       </div>
     </nav>
   </div>
@@ -59,7 +59,7 @@
 
   <ul id="slide-out" class="side-nav show-on-large">
     <li><div class="userView">
-      <img class="background" style = "width: auto; height: 300px;" src="/assets/navbar_background.jpg">
+      <img class="background" style = "width: auto; height: 300px;" src="<%= image_path'navbar_background.jpg'%>">
       <% unless current_user.nil?%>
         <ul class="collection">
           <li class="collection-item avatar">
