@@ -46,7 +46,6 @@
         <div class="card-content">
           <ul class="collection">
             <li class="collection-item avatar">
-              
               <img src="<%= image_path @one_post.user.userpic %>" class="circle">
               <!--<i class="large material-icons; circle">hi</i>-->
 
@@ -71,7 +70,7 @@
 
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
-           <p> <img src="<%=image_path x.user.userpic%>" class="circle" style="width:30px; height:auto;"> &nbsp;<span style="font-weight:bold; color:#7986cb"><%= x.user.username%></span>&nbsp;&nbsp;&nbsp;<span style="font-weight:bold; color:#8c8c8c"><%= x.content %></span> 
+           <p> <img src="<%=image_path x.user.userpic %>" class="circle" style="width:30px; height:auto;"> &nbsp;<span style="font-weight:bold; color:#7986cb"><%= x.user.username%></span>&nbsp;&nbsp;&nbsp;<span style="font-weight:bold; color:#8c8c8c"><%= x.content %></span> 
            <% if user_signed_in? && current_user.id==x.user_id %>
            <a href="/delete_reply/<%=x.id%>">[x]</a>
            <% end %>
