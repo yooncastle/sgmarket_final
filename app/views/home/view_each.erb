@@ -17,7 +17,7 @@
                 <% else %>
                   <!--거래완료-->
                   <li>
-                  <img src=<%=@one_post.image_url%>>
+                  <img src=<%= image_path @one_post.image_url%>>
                   </li>        
                   <% @one_post.post_images.each do |s| %>
                     <li>
@@ -29,7 +29,7 @@
               <% else %>
                 <li>
                   <!--이미지 안올렸을때-->
-                  <img src=<%=@one_post.image_url%>>
+                  <img src= <%= image_path @one_post.image_url%>>
                 </li>
               <% end %>
             </ul>
