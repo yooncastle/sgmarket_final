@@ -48,5 +48,5 @@ Rails.application.configure do
     :user_name => "postmaster@sandbox7cbccdcd9d0847d7a19d60ce2feb106a.mailgun.org",
     :password => "74c909bd05920c10205e2fd7c44c3b5e"
   }
-  config.action_mailer.default_url_options = {host:'52.78.132.230'}
+  config.action_mailer.default_url_options = {host:'http://mysgmarket.com/'}
 end
