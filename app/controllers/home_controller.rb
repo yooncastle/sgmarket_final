@@ -96,7 +96,7 @@ class HomeController < ApplicationController
     
     # create post_image
     if params[:avatars].nil?
-      @new_post.image_url = "/assets/emptyimage.png"
+      @new_post.image_url = ActionController::Base.helpers.asset_path("emptyimage.png")
       @new_post.save
     else
       params[:avatars].each do |file|
