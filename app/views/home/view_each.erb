@@ -17,7 +17,8 @@
                 <% else %>
                   <!--거래완료-->
                   <li>
-                  <img src=<%=@one_post.image_url%>>
+                  <% img_complete = @one_post.image_url %>
+                  <img src=<%= image_path img_complete %>>
                   </li>        
                   <% @one_post.post_images.each do |s| %>
                     <li>
@@ -29,7 +30,8 @@
               <% else %>
                 <li>
                   <!--이미지 안올렸을때-->
-                  <img src=<%=@one_post.image_url%>>
+                  <% img_empty = @one_post.image_url %>
+                  <img src= <%= image_path img_empty %>>
                 </li>
               <% end %>
             </ul>
@@ -46,8 +48,8 @@
         <div class="card-content">
           <ul class="collection">
             <li class="collection-item avatar">
-              
-              <img src="<%= @one_post.user.userpic %>" class="circle">
+              <% img_path_writer = @one_post.user.userpic + '.png' %>
+              <img src="<%= image_path img_path_writer %>" class="circle">
               <!--<i class="large material-icons; circle">hi</i>-->
 
               <span class="title" style="font-weight:bold; color:grey"><%= @one_post.user.username %></span>
@@ -71,7 +73,8 @@
 
         <div class="card-action">
           <% @one_post.replies.each do |x| %>
-           <p> <img src="<%=image_path x.user.userpic%>" class="circle" style="width:30px; height:auto;"> &nbsp;<span style="font-weight:bold; color:#7986cb"><%= x.user.username%></span>&nbsp;&nbsp;&nbsp;<span style="font-weight:bold; color:#8c8c8c"><%= x.content %></span> 
+           <% img_path_reply = x.user.userpic + '.png' %>
+           <p> <img src="<%=image_path img_path_reply %>" class="circle" style="width:30px; height:auto;"> &nbsp;<span style="font-weight:bold; color:#7986cb"><%= x.user.username%></span>&nbsp;&nbsp;&nbsp;<span style="font-weight:bold; color:#8c8c8c"><%= x.content %></span> 
            <% if user_signed_in? && current_user.id==x.user_id %>
            <a href="/delete_reply/<%=x.id%>">[x]</a>
            <% end %>
