@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'bootstrap-kaminari-views'
 gem 'search_cop'
 gem 'kaminari'
