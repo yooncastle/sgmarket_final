@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'mailgun-ruby'
+
 gem 'bootstrap-kaminari-views'
 gem 'search_cop'
 gem 'kaminari'
