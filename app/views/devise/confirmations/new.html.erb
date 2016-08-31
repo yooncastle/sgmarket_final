@@ -3,9 +3,10 @@
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
   <div class="field">
-    <p><%= f.label :아이디 %><br />
+    <p><%= f.label :이메일 %><br />
     <%= f.text_field :username, autofocus: true %></p>
   </div>
+
 
   
     <div class="actions">
@@ -14,3 +15,7 @@
     <% end %>
 
 </div>
+
+<script>
+  
+</script>
