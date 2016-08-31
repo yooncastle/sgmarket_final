@@ -55,8 +55,8 @@ Post.create(id:"46", title:"존예원피스 팝니다", content:"직거래 only"
 Post.create(id:"47", title:"신발 팔아요", content:"신촌에서 거래하고 싶습니다.", contact:"010-6378-9616",price:"1000원",user_id:"2",finished: false, image_url: "http://cfile222.uf.daum.net/image/1328C5415134521728A397")
 Post.create(id:"48", title:"블라우스팔아요", content:"신촌에서 거래하고 싶습니다.", contact:"010-6378-9616",price:"1000원",user_id:"3",finished: false, image_url: "http://image.auction.co.kr/itemimage/3a/22/5c/3a225cba0.jpg")
 
-User.create(id:1, email:'admin@sgmarket.com', password:'djemals',username:'admin',realname:'어드민', admin:true, userpic:"/assets/hugging.png")
-User.create(id:2, email:'yooncastle@gmail.com',password:'rladbstjd', username:'윤성', realname:'김윤성', admin:false, userpic:"/assets/money.png")
-User.create(id:3, email:'111@naver.com', password: 'rkdqhrud', username:'보경', realname:'강보경', admin:false, userpic:"/assets/hugging.png")
-User.create(id:4, email:'a960401sogang@gmail.com', password: 'lchmm516578', username:'찬하', realname:'이찬하', admin:false, userpic:"/assets/happy.png")
-User.create(id:5, email:'333@naver.com', password: 'dlgPdls', username:'혜인', realname:'이혜인', admin:false, userpic:"/assets/blushed.png")
+User.create(id:1, email:'admin@sgmarket.com', password:'djemals',username:'admin',realname:'어드민', admin:true, userpic:"hugging")
+User.create(id:2, email:'yooncastle@gmail.com',password:'rladbstjd', username:'윤성', realname:'김윤성', admin:false, userpic:"money")
+User.create(id:3, email:'111@naver.com', password: 'rkdqhrud', username:'보경', realname:'강보경', admin:false, userpic:"hugging")
+User.create(id:4, email:'a960401sogang@gmail.com', password: 'lchmm516578', username:'찬하', realname:'이찬하', admin:false, userpic:"happy")
+User.create(id:5, email:'333@naver.com', password: 'dlgPdls', username:'혜인', realname:'이혜인', admin:false, userpic:"blushed")
