@@ -22,11 +22,7 @@
     <a href="/home/show_reply_post" style="color:grey; font-weight:bold">내가 <span style="color:#7986cb">댓글을 단</span> 글<br>
     <a href="/home/alarm" style="color:grey; font-weight:bold">내 글에 <span style="color:#7986cb">달린 댓글</span></a>
   </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle teal lighten-2">verified_user</i>
-    <%= link_to "승인메일전송", new_confirmation_path(resource_name), class: "waves-effect waves-light btn teal lighten-2", style: "margin-bottom:10px;" %>
-    <a href="#!" class="secondary-content"></a>
-  </li>
+  
   <li class="collection-item avatar">
     <i class="material-icons circle deep-orange lighten-2">thumb_up</i>
     <form action="/home/change_pic" method="GET">
