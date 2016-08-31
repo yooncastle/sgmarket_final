@@ -24,7 +24,7 @@
   </li>
   <li class="collection-item avatar">
     <i class="material-icons circle teal lighten-2">verified_user</i>
-    <a href="/home/users/password" style="color:#7986cb; font-weight:bold">인증하러가기</a>
+    <%= link_to "승인메일전송", new_confirmation_path(resource_name), class: "waves-effect waves-light btn teal lighten-2", style: "margin-bottom:10px;" %>
     <a href="#!" class="secondary-content"></a>
   </li>
   <li class="collection-item avatar">
