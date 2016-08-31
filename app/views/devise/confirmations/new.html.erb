@@ -1,4 +1,5 @@
-<h3>가입하신 서강대 메일을 적어주세요</h3>
+<div style="margin-top:50px">
+<p style="font-weight:bold; color:#8c8c8c;">가입하신 <span style="color:#7986cb">서강대학교 메일(xx@sogang.ac.kr)</span>을 적어주세요!</p>
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
   <div class="field">
@@ -7,10 +8,9 @@
   </div>
 
   
-      <div class="actions">
+    <div class="actions">
       <a class="waves-effect waves-light btn deep-orange lighten-2"><%= f.submit "인증메일 전송" %></a>
-      </div>
-  
-<% end %>
+    </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
