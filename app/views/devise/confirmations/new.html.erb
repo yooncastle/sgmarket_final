@@ -6,14 +6,11 @@
     <%= f.text_field :username, autofocus: true %></p>
   </div>
 
-  <% if params[:username].include?("@sogang.ac.kr") %>
+  
       <div class="actions">
       <%= f.submit "인증메일 전송" %>
       </div>
-  <% else %>
-     <span>이메일을 다시 입력해 주세요</span>
-  <% end %>
-  >
+  
 <% end %>
 
 <%= render "devise/shared/links" %>
