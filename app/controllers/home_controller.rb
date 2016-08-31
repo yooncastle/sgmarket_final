@@ -96,7 +96,7 @@ class HomeController < ApplicationController
     
     # create post_image
     if params[:avatars].nil?
-      @new_post.image_url = "/assets/emptyimage.png"
+      @new_post.image_url = ActionController::Base.helpers.asset_path("emptyimage.png")
       @new_post.save
     else
       params[:avatars].each do |file|
@@ -179,7 +179,7 @@ class HomeController < ApplicationController
     resource = User.find_for_database_authentication(id: current_user.id)
     if resource.valid_password?(params[:edit_password])
       @fin_post.finished=1
-      @fin_post.image_url="/assets/finished_pic.png"
+      @fin_post.image_url=ActionController::Base.helpers.asset_path("finished_pic.png")
       @fin_post.save
       redirect_to "/home/index"
     else
