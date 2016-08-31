@@ -1,4 +1,4 @@
-<h3>서강대 메일을 적어주세요</h3>
+<h3>가입하신 서강대 메일을 적어주세요</h3>
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
   <div class="field">
@@ -8,7 +8,7 @@
 
   
       <div class="actions">
-      <%= f.submit "인증메일 전송" %>
+      <a class="waves-effect waves-light btn deep-orange lighten-2"><%= f.submit "인증메일 전송" %></a>
       </div>
   
 <% end %>
