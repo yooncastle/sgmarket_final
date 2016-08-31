@@ -43,10 +43,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = { 
     :authentication => :plain,
     :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "sandbox7cbccdcd9d0847d7a19d60ce2feb106a.mailgun.org",
-    :user_name => "postmaster@sandbox7cbccdcd9d0847d7a19d60ce2feb106a.mailgun.org",
-    :password => "74c909bd05920c10205e2fd7c44c3b5e"
+    :domain => "mysgmarket.com",
+    :user_name => "postmaster@mysgmarket.com",
+    :password => "484ebbba192b8e1a364f4fdab6e58011"
   }
   config.action_mailer.default_url_options = {host:'http://mysgmarket.com/'}
 end
